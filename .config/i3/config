@@ -20,8 +20,8 @@
 # #---Basic Definitions---# #
 # Needed for i3-gaps
 for_window [class="^.*"] border pixel 2
-gaps inner 15
-gaps outer 15
+gaps inner 20
+gaps outer 20
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $stoprec --no-startup-id dmenurecord kill
@@ -33,17 +33,22 @@ set $hibernate sudo -A systemctl suspend
 # #---Dropdown Windows---# #
 
 # General dropdown window traits. The order can matter.
-for_window [instance="dropdown_*"] floating enable
-for_window [instance="dropdown_*"] move scratchpad
-for_window [instance="dropdown_*"] sticky enable
-for_window [instance="dropdown_*"] scratchpad show
-for_window [instance="dropdown_tmuxdd"] resize set 625 450
-for_window [instance="dropdown_dropdowncalc"] resize set 800 300
-for_window [instance="dropdown_tmuxdd"] border pixel 3
-for_window [instance="dropdown_dropdowncalc"] border pixel 2
-for_window [instance="dropdown_*"] move position center
+for_window [title="dropdown_*"] floating enable
+for_window [title="dropdown_*"] move scratchpad
+for_window [title="dropdown_*"] sticky enable
+for_window [title="dropdown_*"] scratchpad show
+for_window [title="dropdown_tmuxdd"] resize set 625 450
+for_window [title="dropdown_dropdowncalc"] resize set 800 300
+for_window [title="dropdown_browserdd"] resize set 1920 1080
+for_window [title="dropdown_pip"] resize set 1280 720
+for_window [title="dropdown_tmuxdd"] border pixel 3
+for_window [title="dropdown_dropdowncalc"] border pixel 2
+for_window [title="dropdown_*"] move position center
+for_window [title="dropdown_pip"] move position 2560 px 1440 px
+for_window [title="dropdown_pip"] border pixel 0
 
 # #---Starting External Scripts---# #
+exec --no-startup-id compton -b
 # mpd startup
 exec --no-startup-id mpd
 # Setting the background:
@@ -60,14 +65,12 @@ exec --no-startup-id unclutter
 exec_always --no-startup-id mpdupdate
 # Podboat automatic queue and download
 exec_always --no-startup-id podentr
-
-bar {
-	font pango:mono 10
-	status_command i3blocks
-	position top
-	mode dock
-	modifier None
-}
+exec_always --no-startup-id numlockx on
+# Start polybar
+exec --no-startup-id polybar -r left
+exec --no-startup-id polybar -r center
+exec --no-startup-id polybar -r right
+# Start skype
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
@@ -93,8 +96,8 @@ bindsym $mod+Insert		exec --no-startup-id showclip
 bindsym $mod+Pause		exec --no-startup-id xcqr
 
 # #---Letter Key Bindings---# #
-bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
-bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+bindsym $mod+q			[con_id="__focused__" title="^(?!dropdown_).*$"] kill
+bindsym $mod+Shift+q		[con_id="__focused__" title="^(?!dropdown_).*$"] kill
 
 bindsym $mod+w			exec $term -e nmtui
 bindsym $mod+Shift+w		exec --no-startup-id $BROWSER
@@ -108,7 +111,7 @@ bindsym $mod+Shift+r		exec --no-startup-id winresize
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
 
-bindsym $mod+y			exec $term -e calcurse -D ~/.config/calcurse
+bindsym $mod+y			[class="mpv"] scratchpad show;
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
 
 bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
@@ -123,13 +126,13 @@ bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 bindsym $mod+p			exec --no-startup-id lmc toggle
 bindsym $mod+Shift+p		exec --no-startup-id lmc pause
 
-bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc
 bindsym $mod+Shift+a		exec $term -e pulsemixer
 
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
 
-bindsym $mod+d			exec --no-startup-id dmenu_run
+bindsym $mod+d			exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
@@ -166,13 +169,13 @@ bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
 #bindsym $mod+Shift+v
 
-bindsym $mod+b			bar mode toggle
+bindsym $mod+b			exec --no-startup-id ddspawn qutebrowser --target window -basedir ~/.config/qutebrowser/dropdown --qt-arg name dropdown_browserdd
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
 
 bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id bottomright
 
-bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
+bindsym $mod+m			exec --no-startup-id ddspawn skypeforlinux
 bindsym $mod+Shift+m		exec --no-startup-id lmc mute
 
 # #---Workspace Bindings---# #
@@ -244,6 +247,10 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
+# Make matplotlib floating
+for_window [class="Matplotlib"] floating enable
+for_window [class="Matplotlib"] border pixel 3
+
 # #---Function Buttons---# #
 bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom ~/.local/share/larbs/readme.mom -Tpdf | zathura -
 bindsym $mod+F2		restart
@@ -309,7 +316,7 @@ bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdow
 ##bindsym XF86Paste		exec
 ##bindsym XF86Cut		exec
 ##bindsym XF86MenuKB		exec
-bindsym XF86Calculator		exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+bindsym XF86Calculator		exec --no-startup-id ddspawn dropdowncalc
 ##bindsym XF86Sleep		This binding is typically mapped by systemd automatically.
 ##bindsym XF86WakeUp		exec
 bindsym XF86Explorer		exec $term -e $FILE
