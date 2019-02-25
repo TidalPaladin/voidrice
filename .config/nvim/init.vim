@@ -10,6 +10,7 @@ Plug 'LukeSmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 set bg=light
@@ -181,6 +182,7 @@ set clipboard=unnamedplus
 	autocmd FileType tex inoremap ,tt \texttt{}<Space><Esc>T{i
 	autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
 	autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
+
 """HTML
 	autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
 	autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
@@ -260,11 +262,14 @@ set clipboard=unnamedplus
 	"""Compile in debug mode with Shift-F5
 	autocmd FileType python inoremap <F15> <Esc>:!pytest3<space><c-r>% --pdb<Enter>
 	autocmd FileType python nnoremap <F15> :!pytest3<space><c-r>% --pdb<Enter>
+
+	autocmd FileType python inoremap ,cls class ():<Esc>F(i
+	autocmd FileType python inoremap ,def def ():<Esc>F(i
+	autocmd FileType python inoremap ,init __init__():<Esc>F(a
 	autocmd FileType python inoremap ,inp <Esc>ggOimport numpy as np<Esc>``
 	autocmd FileType python inoremap ,ipd <Esc>ggOimport pandas as pd<Esc>``
 	autocmd FileType python inoremap ,ipl <Esc>ggOfrom matplotlib import pyplot as plt<Esc>``
-	autocmd FileType python inoremap ,def def ():<Esc>F(i
-	autocmd FileType python inoremap ,cls class ():<Esc>F(i
-	autocmd FileType python inoremap ,init __init__():<Esc>F(a
 	autocmd FileType python inoremap ,main if __name__ == '__main__':<Enter>
 	autocmd FileType python inoremap ,re return
+
+source ~/.config/nvim/autoload/theme.vim
