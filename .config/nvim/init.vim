@@ -1,4 +1,4 @@
-let mapleader =","
+let mapleader =" "
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
@@ -45,7 +45,7 @@ set clipboard=unnamedplus
 	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
 	nm <leader>i :call ToggleIPA()<CR>
 	imap <leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader>q :call ToggleProse()<CR>
+	"nm <leader>q :call ToggleProse()<CR>
 
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
@@ -54,7 +54,12 @@ set clipboard=unnamedplus
 	map <C-l> <C-w>l
 
 " Check file in shellcheck:
-	map <leader>s :!clear && shellcheck %<CR>
+	"map <leader>s :!clear && shellcheck %<CR>
+" Shortcut for save file
+	map <leader>s :w<CR>
+
+" Shortcut for exit
+	map <leader>q :q<CR>
 
 " Open my bibliography file in split
 	map <leader>b :vsp<space>$BIB<CR>
@@ -142,6 +147,40 @@ set clipboard=unnamedplus
 	autocmd FileType tex inoremap ,col \begin{columns}[T]<Enter>\begin{column}{.5\textwidth}<Enter><Enter>\end{column}<Enter>\begin{column}{.5\textwidth}<Enter><++><Enter>\end{column}<Enter>\end{columns}<Esc>5kA
 	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
 
+	""" My mods
+	autocmd FileType tex inoremap ,ali \begin{align}<Enter>\end{align}<Esc>O
+	autocmd FileType tex inoremap ,beg \begin{DELRN}<Enter><Enter>\end{DELRN}<Enter><Enter><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<Enter>c
+	autocmd FileType tex inoremap ,bma \begin{bmatrix}<Enter>\end{bmatrix}<Esc>O
+	autocmd FileType tex inoremap ,bs \boldsymbol{}<Esc>i
+	autocmd FileType tex inoremap ,bt {\blindtext}
+	autocmd FileType tex inoremap ,can \cand{}<Tab><Esc>T{i
+	autocmd FileType tex inoremap ,cas \begin{cases}<Enter>\end{cases}<Esc>O
+	autocmd FileType tex inoremap ,con \const{}<Tab><Esc>T{i
+	autocmd FileType tex inoremap ,em \emph{}<Esc>T{i
+	autocmd FileType tex inoremap ,enu \begin{enumerate}[(a)]<Enter>\end{enumerate}<Esc>O\item<Space>
+	autocmd FileType tex inoremap ,eq \begin{equation}<Enter>\end{equation}<Esc>O
+	autocmd FileType tex inoremap ,for \foreach \l [count=\i] in {}<Esc>i
+	autocmd FileType tex inoremap ,fra \frac{}{}<Esc>F{F{a
+	autocmd FileType tex inoremap ,itm <Enter>\item<Space>
+	autocmd FileType tex inoremap ,nu $\varnothing$
+	autocmd FileType tex inoremap ,ph \phantom{}<Esc>i
+	autocmd FileType tex inoremap ,pma \begin{pmatrix}<Enter>\end{pmatrix}<Esc>O
+	autocmd FileType tex inoremap ,ref \ref{}<Space><Esc>T{i
+	autocmd FileType tex inoremap ,sc \textsc{}<Space><Esc>T{i
+	autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><Esc>2kf}i
+	autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><Esc>2kf}i
+	autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><Esc>2kf}i
+	autocmd FileType tex inoremap ,st <Esc>F{i*<Esc>f}i
+	autocmd FileType tex inoremap ,tdn \draw[] () -- <Enter><Tab>\node[midway] {}<Enter>();<Esc>2kf{a
+	autocmd FileType tex inoremap ,tdr \draw[] ();<Esc>0f[a
+	autocmd FileType tex inoremap ,te \text{}<Space><Esc>T{i
+	autocmd FileType tex inoremap ,tno \node[] () {};<Esc>0f[a
+	autocmd FileType tex inoremap ,tpi \begin{tikzpicture}[scale=1.0, thick]<Enter>\end{tikzpicture}<Esc>O
+	autocmd FileType tex inoremap ,tsc \textsc{}<Space><Esc>T{i
+	autocmd FileType tex inoremap ,tse \tikzset{%<Enter>./.style={}<Enter>}<Esc><<kI
+	autocmd FileType tex inoremap ,tt \texttt{}<Space><Esc>T{i
+	autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
+	autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
 """HTML
 	autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
 	autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
@@ -214,3 +253,18 @@ set clipboard=unnamedplus
 	autocmd FileType xml inoremap ,e <item><Enter><title><++></title><Enter><guid<space>isPermaLink="false"><++></guid><Enter><pubDate><Esc>:put<Space>=strftime('%a, %d %b %Y %H:%M:%S %z')<Enter>kJA</pubDate><Enter><link><++></link><Enter><description><![CDATA[<++>]]></description><Enter></item><Esc>?<title><enter>cit
 	autocmd FileType xml inoremap ,a <a href="<++>"><++></a><++><Esc>F"ci"
 
+
+"""Python
+	autocmd FileType python inoremap <F5> <Esc>:!pytest3<space><c-r>%<Enter>
+	autocmd FileType python nnoremap <F5> :!pytest3<space><c-r>%<Enter>
+	"""Compile in debug mode with Shift-F5
+	autocmd FileType python inoremap <F15> <Esc>:!pytest3<space><c-r>% --pdb<Enter>
+	autocmd FileType python nnoremap <F15> :!pytest3<space><c-r>% --pdb<Enter>
+	autocmd FileType python inoremap ,inp <Esc>ggOimport numpy as np<Esc>``
+	autocmd FileType python inoremap ,ipd <Esc>ggOimport pandas as pd<Esc>``
+	autocmd FileType python inoremap ,ipl <Esc>ggOfrom matplotlib import pyplot as plt<Esc>``
+	autocmd FileType python inoremap ,def def ():<Esc>F(i
+	autocmd FileType python inoremap ,cls class ():<Esc>F(i
+	autocmd FileType python inoremap ,init __init__():<Esc>F(a
+	autocmd FileType python inoremap ,main if __name__ == '__main__':<Enter>
+	autocmd FileType python inoremap ,re return
