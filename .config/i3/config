@@ -47,10 +47,10 @@ for_window [title="dropdown_*"] move position center
 for_window [class="mpv"] floating enable
 for_window [class="mpv"] move scratchpad
 for_window [class="mpv"] sticky enable
+for_window [class="mpv"] scratchpad show
+for_window [class="mpv"] border pixel 0
 for_window [class="mpv"] resize set 1280 720
 for_window [class="mpv"] move position 2560 px 1440 px
-for_window [class="mpv"] border pixel 0
-for_window [class="mpv"] scratchpad show
 
 focus_follows_mouse no
 
