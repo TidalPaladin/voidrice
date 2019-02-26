@@ -3,16 +3,19 @@
 
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export EDITOR="nvim"
-export TERMINAL="st"
-export BROWSER="firefox"
+export EDITOR='nvim'
+export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"
-export BIB="$HOME/Documents/LaTeX/uni.bib"
-export REFER="$HOME/Documents/referbib"
+export PAGER="less"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
+export KEYTIMEOUT=1
+export TERM="xterm-256color"
+export TERMINAL="alacritty"
+export LD_LIBRARY_PATH="/usr/lib64/${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+export PATH="$PATH:/usr/local/cuda-10.0/bin/"
 
 # less/man colors
 export LESS=-R
@@ -33,3 +36,8 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 
 # Switch escape and caps if tty:
 sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
+
+# Run pywal to apply color scheme
+wal -R
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
