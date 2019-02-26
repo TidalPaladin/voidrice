@@ -40,12 +40,19 @@ for_window [title="dropdown_*"] scratchpad show
 for_window [title="dropdown_tmuxdd"] resize set 625 450
 for_window [title="dropdown_dropdowncalc"] resize set 800 300
 for_window [title="dropdown_browserdd"] resize set 1920 1080
-for_window [title="dropdown_pip"] resize set 1280 720
 for_window [title="dropdown_tmuxdd"] border pixel 3
 for_window [title="dropdown_dropdowncalc"] border pixel 2
 for_window [title="dropdown_*"] move position center
-for_window [title="dropdown_pip"] move position 2560 px 1440 px
-for_window [title="dropdown_pip"] border pixel 0
+
+for_window [class="mpv"] floating enable
+for_window [class="mpv"] move scratchpad
+for_window [class="mpv"] sticky enable
+for_window [class="mpv"] resize set 1280 720
+for_window [class="mpv"] move position 2560 px 1440 px
+for_window [class="mpv"] border pixel 0
+for_window [class="mpv"] scratchpad show
+
+focus_follows_mouse no
 
 # #---Starting External Scripts---# #
 exec --no-startup-id compton -b
