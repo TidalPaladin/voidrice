@@ -104,9 +104,9 @@ set clipboard=unnamedplus
 	autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
 
 " Navigating with guides
-	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-	map <leader><leader> <Esc>/<++><Enter>"_c4l
+	"inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+	"vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+	"map <leader><leader> <Esc>/<++><Enter>"_c4l
 
 """LATEX
 	" Word count:
