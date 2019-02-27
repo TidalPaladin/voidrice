@@ -26,11 +26,11 @@ function cp-bulk() {
 	rsync -axv --progress --files-from="$1" "$2" "$3"
 }
 
-neofetch
 # Apply pywal theme and powerline
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
 source ~/.powerline
+neofetch
 
 # Helps to hide username at console prompt?
 export DEFAULT_USER="$USER"
