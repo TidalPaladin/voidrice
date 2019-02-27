@@ -1,3 +1,4 @@
+#!/bin/zsh
 #   file: .zshrc
 #   Requires powerline, powerlevel9k, dmenu, zsh,
 #   neofetch, loadkeys
@@ -25,6 +26,7 @@ function cp-bulk() {
 	rsync -axv --progress --files-from="$1" "$2" "$3"
 }
 
+neofetch
 # Apply pywal theme and powerline
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
@@ -59,8 +61,5 @@ fi
 source $ZSH/oh-my-zsh.sh
 ZSH_HIGHLIGHT_HILIGHTERS=(main brackets pattern cursor)
 
-
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" # Load shortcut aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-
-neofetch

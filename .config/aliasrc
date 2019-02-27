@@ -32,59 +32,58 @@ se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDIT
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 
-alias \
-	-g G='| grep' \
-	-g L='| less' \
-	-g M='| more'
-alias \
-	alg='/mnt/valak/documents/school/CS6363' \
+alias alg="/mnt/valak/documents/school/CS6363" \
 	amend="git commit --amend" \
-	aur='pacaur -S' \
-	c='cd' \
+	aur="pacaur -S" \
+	c="cd" \
 	ccat="highlight --out-format=ansi" \
-	es='vim ~/.' \
+	es="vim ~/." \
 	gac="git add . && git commit -m" \
-	gad='git add --all .' \
-	gag='git add . && git commit --amend --no-edit && git push -f' \
-	gbc='gdc' \
-	gca='git commit -a' \
-	gcaa='git commit -a --amend -C HEAD' \
-	gcl='git clone' \
+	gad="git add --all ." \
+	gag="git add . && git commit --amend --no-edit && git push -f" \
+	gbc="gdc" \
+	gca="git commit -a" \
+	gcaa="git commit -a --amend -C HEAD" \
+	gcl="git clone" \
 	gcm="git commit -m" \
-	gco='git checkout' \
-	gd='git diff' \
-	gdc='git diff --cached' \
-	gdm='git diff master' \
-	gg='git lg' \
-	gom-done="git-on-master && gpf && git-done" \
-	gp='git push' \
-	gpf='git push --force' \
-	gph='git push heroku' \
+	gco="git checkout" \
+	gd="git diff" \
+	gdc="git diff --cached" \
+	gdm="git diff master" \
+	gg="git lg" \
+	gomdone="git-on-master && gpf && git-done" \
+	gp="git push" \
+	gpf="git push --force" \
+	gph="git push heroku" \
 	gpom="git push origin master" \
-	gpr='git pull --rebase' \
-	gpush='echo "Use gp!" && git push' \
-	grc='git rebase --continue' \
-	gs='git show' \
-	inst='sudo pacman -S' \
-	lbox='cd /mnt/Storage/Downloads/ && lftp -p 22222 -u tidal, sftp://hades.feralhosting.com/~/private/rtorrent/data' \
-	ls='ls -hN --color=auto --group-directories-first' \
-	m='git checkout master' \
-	mastre='master' \
+	gpr="git pull --rebase" \
+	gpush="echo "Use gp!" && git push" \
+	grc="git rebase --continue" \
+	gs="git show" \
+	inst="sudo pacman -S" \
+	lbox="cd /mnt/Storage/Downloads/ && lftp -p 22222 -u tidal, sftp://hades.feralhosting.com/~/private/rtorrent/data" \
+	ls="ls -hN --color=auto --group-directories-first" \
+	m="git checkout master" \
+	mastre="master" \
 	now="date +%Y-%m-%d.%H:%M:%S" \
-	os='/mnt/valak/documents/school/CS5348' \
+	os="/mnt/valak/documents/school/CS5348" \
 	pia="bash $HOME/.pia.sh" \
 	raidstart="mdadm --assemble --scan && mount -a" \
 	ranger="ranger && cat /home/tidal/.cache/wal/sequences" \
-	reattach='tmux attach' \
+	reattach="tmux attach" \
 	rewal="wal -g -i \"$HOME/Pictures/Wallpapers/vaporwave.jpg\" --saturate 0.75" \
-	rm='rm -i' \
-	sbox='ssh tidal@hades.feralhosting.com' \
-	serv='ssh tidal@tidalpaladin.com' \
-	song-dl='youtube-dl --extract-audio --audio-format m4a --add-metadata --audio-quality 3 --write-thumbnail --continue'
-	squash='git rebase -i master' \
-	susp='systemctl suspend' \
-	u='cd ../' \
-	update='pacaur -Syu' \
-	utd-vpn='sudo openconnect vpn.utdallas.edu' \
-	xnn='/mnt/valak/documents/school/CS6301' \
-	zshrc='vim ~/.zshrc'
+	rm="rm -i" \
+	sbox="ssh tidal@hades.feralhosting.com" \
+	serv="ssh tidal@tidalpaladin.com" \
+	songdl="youtube-dl --extract-audio --audio-format m4a --add-metadata --audio-quality 3 --write-thumbnail --continue"
+	squash="git rebase -i master" \
+	susp="systemctl suspend" \
+	u="cd ../" \
+	update="pacaur -Syu" \
+	utdvpn="sudo openconnect vpn.utdallas.edu" \
+	xnn="/mnt/valak/documents/school/CS6301" \
+	zshrc="vim ~/.zshrc"
+
+alias -g G="| grep" \
+	L="| less" \
+	M="| more"

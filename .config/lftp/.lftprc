@@ -1,0 +1,6 @@
+set sftp:auto-confirm yes
+set mirror:use-pget-n 10
+set pget:default-n 10
+set net:limit-rate 8M
+set net:limit-total-rate 8M
+set sftp:max-packets-in-flight 32
