@@ -77,7 +77,8 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id polybar -r left
 exec --no-startup-id polybar -r center
 exec --no-startup-id polybar -r right
-# Start skype
+# Swap keys
+exec --no-startup-id xmodmap $HOME/.scripts/ttymaps.kmap
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
