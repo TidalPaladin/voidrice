@@ -32,8 +32,7 @@ se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDIT
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 
-alias alg="/mnt/valak/documents/school/CS6363" \
-	amend="git commit --amend" \
+alias amend="git commit --amend" \
 	aur="pacaur -S" \
 	c="cd" \
 	ccat="highlight --out-format=ansi" \
@@ -66,7 +65,6 @@ alias alg="/mnt/valak/documents/school/CS6363" \
 	m="git checkout master" \
 	mastre="master" \
 	now="date +%Y-%m-%d.%H:%M:%S" \
-	os="/mnt/valak/documents/school/CS5348" \
 	pia="bash $HOME/.pia.sh" \
 	raidstart="mdadm --assemble --scan && mount -a" \
 	ranger="ranger && cat /home/tidal/.cache/wal/sequences" \
@@ -81,9 +79,11 @@ alias alg="/mnt/valak/documents/school/CS6363" \
 	u="cd ../" \
 	update="pacaur -Syu" \
 	utdvpn="sudo openconnect vpn.utdallas.edu" \
-	xnn="/mnt/valak/documents/school/CS6301" \
 	zshrc="vim ~/.zshrc"
 
-alias -g G="| grep" \
+alias -g alg="/mnt/valak/documents/school/CS6363" \
+	G="| grep" \
 	L="| less" \
-	M="| more"
+	M="| more" \
+	os="/mnt/valak/documents/school/CS5348" \
+	xnn="/mnt/valak/documents/school/CS6301"
