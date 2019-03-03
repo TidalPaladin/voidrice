@@ -11,6 +11,7 @@ fi
 # Exports
 export KEYTIMEOUT=1
 export TERM="xterm-256color"
+export DOTDIR="$HOME/voidrice"
 ZSH=$HOME/.oh-my-zsh
 
 # Alias function to attach tmux to remote session
