@@ -275,3 +275,11 @@ set clipboard=unnamedplus
 	autocmd FileType python inoremap ,re return
 
 source ~/.config/nvim/autoload/theme.vim
+
+" Readmes autowrap text:
+autocmd BufRead,BufNewFile *.md,*.tex,*.txt set tw=79
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+"set textwidth=0
+"set wrapmargin=0
