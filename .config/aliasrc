@@ -32,7 +32,8 @@ se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDIT
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 
-alias amend="git commit --amend" \
+alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.config/ && source $HOME/.config/aliasrc" \
+	amend="git commit --amend" \
 	aur="pacaur -S" \
 	c="cd" \
 	ccat="highlight --out-format=ansi" \
@@ -49,6 +50,7 @@ alias amend="git commit --amend" \
 	gd="git diff" \
 	gdc="git diff --cached" \
 	gdm="git diff master" \
+	gdt="git difftool" \
 	gg="git lg" \
 	gomdone="git-on-master && gpf && git-done" \
 	gp="git push" \
@@ -56,7 +58,6 @@ alias amend="git commit --amend" \
 	gph="git push heroku" \
 	gpom="git push origin master" \
 	gpr="git pull --rebase" \
-	gpush="echo "Use gp!" && git push" \
 	grc="git rebase --continue" \
 	gs="git show" \
 	inst="sudo pacman -S" \
@@ -79,9 +80,11 @@ alias amend="git commit --amend" \
 	u="cd ../" \
 	update="pacaur -Syu" \
 	utdvpn="sudo openconnect vpn.utdallas.edu" \
-	zshrc="vim ~/.zshrc"
+	vimrc="vim $DOTDIR/.config/nvim/init.vim && cp $DOTDIR/.config/nvim/init.vim $HOME/.config/nvim/" \
+	zshrc="vim $DOTDIR/.zshrc && cp $DOTDIR/.zshrc $HOME/ && source $HOME/.zshrc"
 
 alias -g alg="/mnt/valak/documents/school/CS6363" \
+	dotdir="$DOTDIR" \
 	G="| grep" \
 	L="| less" \
 	M="| more" \
