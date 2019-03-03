@@ -61,7 +61,6 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	grc="git rebase --continue" \
 	gs="git show" \
 	inst="sudo pacman -S" \
-	lbox="cd /mnt/Storage/Downloads/ && lftp -p 22222 -u tidal, sftp://hades.feralhosting.com/~/private/rtorrent/data" \
 	ls="ls -hN --color=auto --group-directories-first" \
 	m="git checkout master" \
 	mastre="master" \
