@@ -19,10 +19,6 @@ function tssh() {
 	ssh $1 -t tmux attach-session
 }
 
-function mkpdf() {
-	lowriter --headless --convert-to pdf "$1" || exit 1
-}
-
 function cp-bulk() {
 	rsync -axv --progress --files-from="$1" "$2" "$3"
 }
