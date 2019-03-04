@@ -1,0 +1,35 @@
+#!/bin/bash
+# Uses libreoffice to convert an input document to pdf.
+# Also replaces whitespace with _
+# No checks are made on document type at present
+# Will convert anything that lowriter --convert-to can handle
+
+run_mkpdf() {
+	file=$(readlink -f "$1")
+	dir=$(dirname "$file")
+	base="${file%.*}"
+	cd "$dir" || exit 1
+	lowriter --headless --convert-to pdf "$1" || exit 1
+	perl-rename "s/ /_/g" "$base.pdf"
+}
+
+# Check to see if a pipe exists on stdin.
+if [ -p /dev/stdin ]; then
+    echo "Data was piped to this script!"
+	# If we want to read the input line by line
+	while IFS= read line; do
+			echo "Processing ${line}"
+			run_mkpdf "${line}"
+	done
+	exit 0
+else
+	# Checking to ensure a filename was specified and that it exists
+	if [ -f "$1" ]; then
+			echo "Processing ${1}"
+			run_mkpdf "$1"
+			exit 0
+	else
+			echo "No input given!"
+			exit 1
+	fi
+fi
