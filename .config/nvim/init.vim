@@ -11,6 +11,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'joshdick/onedark.vim'
+Plug 'goerz/jupytext.vim'
 call plug#end()
 
 set bg=light
