@@ -284,3 +284,10 @@ set linebreak
 set nolist  " list disables linebreak
 "set textwidth=0
 "set wrapmargin=0
+
+" Jupytext
+	let g:jupytext_enable = 1
+	let g:jupytext_command = 'jupytext'
+	let g:jupytext_fmt = 'md'
+	let g:jupytext_to_ipynb_opts = '--to=ipynb --update'
+	let g:jupytext_filetype_map = {'md': 'python'}
