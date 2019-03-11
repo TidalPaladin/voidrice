@@ -12,6 +12,8 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'joshdick/onedark.vim'
 Plug 'goerz/jupytext.vim'
+Plug 'bfredl/nvim-ipy'
+Plug 'ivanov/vim-ipython'
 call plug#end()
 
 set bg=light
@@ -45,9 +47,9 @@ set clipboard=unnamedplus
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " vimling:
-	nm <leader>d :call ToggleDeadKeys()<CR>
+	"nm <leader>d :call ToggleDeadKeys()<CR>
 	"imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
-	nm <leader>i :call ToggleIPA()<CR>
+	"nm <leader>i :call ToggleIPA()<CR>
 	"imap <leader>i <esc>:call ToggleIPA()<CR>a
 	"nm <leader>q :call ToggleProse()<CR>
 
@@ -87,6 +89,7 @@ set clipboard=unnamedplus
 	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
+	autocmd BufRead,BufNewFile *.ipynb set filetype=python
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 	vnoremap <C-c> "+y
@@ -275,10 +278,15 @@ set clipboard=unnamedplus
 	autocmd FileType python inoremap ,main if __name__ == '__main__':<Enter>
 	autocmd FileType python inoremap ,re return
 
+	au FileType python let b:ipy_celldef = ['^```python$', '^```$']
+	autocmd FileType python map <silent> <leader>c <Plug>(IPy-RunCell)
+
 source ~/.config/nvim/autoload/theme.vim
+let g:loaded_python_provider = 1
+let g:ipy_set_ft = 1
 
 " Readmes autowrap text:
-autocmd BufRead,BufNewFile *.md,*.tex,*.txt set tw=79
+autocmd BufRead,BufNewFile *.md,*.tex,*.txt,*.ipynb set tw=79
 set wrap
 set linebreak
 set nolist  " list disables linebreak
@@ -291,3 +299,4 @@ set nolist  " list disables linebreak
 	let g:jupytext_fmt = 'md'
 	let g:jupytext_to_ipynb_opts = '--to=ipynb --update'
 	let g:jupytext_filetype_map = {'md': 'python'}
+	let g:nvim_ipy_perform_mappings = 0
