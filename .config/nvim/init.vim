@@ -280,6 +280,9 @@ set clipboard=unnamedplus
 
 	au FileType python let b:ipy_celldef = ['^```python$', '^```$']
 	autocmd FileType python map <silent> <leader>c <Plug>(IPy-RunCell)
+	autocmd FileType python map <leader>? <Plug>(IPy-WordObjInfo)
+	autocmd FileType python map <leader>k <Plug>(IPy-Interrupt)
+	autocmd FileType python map <leader>t <Plug>(IPy-Terminate)
 
 source ~/.config/nvim/autoload/theme.vim
 let g:loaded_python_provider = 1
