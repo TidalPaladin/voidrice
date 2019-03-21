@@ -1,4 +1,5 @@
 let mapleader =" "
+let maplocalleader =" "
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
@@ -6,7 +7,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
-Plug 'LukeSmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
@@ -14,6 +14,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'goerz/jupytext.vim'
 Plug 'bfredl/nvim-ipy'
 Plug 'ivanov/vim-ipython'
+Plug 'lervag/vimtex'
+Plug 'sirver/ultisnips'
+"Plug 'valloric/youcompleteme'
+Plug 'TidalPaladin/vim-snippets'
 call plug#end()
 
 set bg=light
@@ -189,6 +193,12 @@ set clipboard=unnamedplus
 	autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
 	autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
 
+	autocmd FileType tex inoremap ,pro %==================<Esc>yypO
+			\\HomeworkHeader{}{}<Enter>
+			\Problem text<Enter>
+			\\begin{solution}<Enter>\end{solution}<Enter>
+			\\begin{proof}<Enter>\end{proof}
+
 """HTML
 	autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
 	autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
@@ -289,7 +299,7 @@ let g:loaded_python_provider = 1
 let g:ipy_set_ft = 1
 
 " Readmes autowrap text:
-autocmd BufRead,BufNewFile *.md,*.tex,*.txt,*.ipynb set tw=79
+autocmd BufRead,BufNewFile *.md,*.tex,*.txt,*.ipynb set tw=70
 set wrap
 set linebreak
 set nolist  " list disables linebreak
@@ -303,3 +313,15 @@ set nolist  " list disables linebreak
 	let g:jupytext_to_ipynb_opts = '--to=ipynb --update'
 	let g:jupytext_filetype_map = {'md': 'python'}
 	let g:nvim_ipy_perform_mappings = 0
+
+" Vimtex
+	let g:tex_flavor='latex'
+	let g:vimtex_view_method='zathura'
+	let g:vimtex_quickfix_mode=0
+	set conceallevel=2
+	let g:tex_conceal='abdmg'
+
+" UltiSnips
+	let g:UltiSnipsExpandTrigger = '<tab>'
+	let g:UltiSnipsJumpForwardTrigger = '<tab>'
+	let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
