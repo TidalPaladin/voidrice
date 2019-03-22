@@ -60,3 +60,23 @@ ZSH_HIGHLIGHT_HILIGHTERS=(main brackets pattern cursor)
 
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" # Load shortcut aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+source ~/.zplug/init.zsh
+
+# Supports oh-my-zsh plugins and the like
+zplug "zsh-users/zsh-autosuggestions"
+#zplug "zsh-users/zsh-autosuggestions",   from:oh-my-zsh
+
+# Load theme file
+zplug 'bhilburn/powerlevel9k', as:theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
