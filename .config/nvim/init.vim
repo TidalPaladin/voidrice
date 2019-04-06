@@ -18,6 +18,7 @@ Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 "Plug 'valloric/youcompleteme'
 Plug 'TidalPaladin/vim-snippets'
+Plug 'unblevable/quick-scope'
 call plug#end()
 
 set bg=light
