@@ -46,6 +46,7 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	gcaa="git commit -a --amend -C HEAD" \
 	gcl="git clone" \
 	gcm="git commit -m" \
+	gc="git commit -v" \
 	gco="git checkout" \
 	gd="git diff" \
 	gdc="git diff --cached" \
