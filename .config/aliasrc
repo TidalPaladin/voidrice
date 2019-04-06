@@ -64,7 +64,7 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	ls="ls -hN --color=auto --group-directories-first" \
 	m="git checkout master" \
 	mastre="master" \
-	mutt="neomutt && cat /home/tidal/.cache/wal/sequences" \
+	#mutt="neomutt && cat /home/tidal/.cache/wal/sequences" \
 	now="date +%Y-%m-%d.%H:%M:%S" \
 	pia="bash $HOME/.pia.sh" \
 	raidstart="mdadm --assemble --scan && mount -a" \
