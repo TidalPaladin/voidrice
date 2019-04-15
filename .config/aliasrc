@@ -14,6 +14,7 @@ alias ka="killall" \
 	sdn="sudo shutdown -h now" \
 	gua="git remote | xargs -L1 git push --all" \
 	ls="ls -hN --color=auto --group-directories-first" \
+	la="ls -hNal --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
@@ -37,6 +38,7 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	aur="pacaur -S" \
 	c="cd" \
 	ccat="highlight --out-format=ansi" \
+	clip="xclip -sel clipboard" \
 	es="vim ~/." \
 	gac="git add . && git commit -m" \
 	gad="git add --all ." \
@@ -65,7 +67,7 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	ls="ls -hN --color=auto --group-directories-first" \
 	m="git checkout master" \
 	mastre="master" \
-	#mutt="neomutt && cat /home/tidal/.cache/wal/sequences" \
+	mutt="neomutt" \
 	now="date +%Y-%m-%d.%H:%M:%S" \
 	pia="bash $HOME/.pia.sh" \
 	raidstart="mdadm --assemble --scan && mount -a" \
