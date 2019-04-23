@@ -13,8 +13,8 @@ alias ka="killall" \
 	x="sxiv -ft *" \
 	sdn="sudo shutdown -h now" \
 	gua="git remote | xargs -L1 git push --all" \
-	ls="ls -hN --color=auto --group-directories-first" \
-	la="ls -hNal --color=auto --group-directories-first" \
+	ls="ls -hG" \
+	la="ls -halG" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
@@ -64,7 +64,6 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	grc="git rebase --continue" \
 	gs="git show" \
 	inst="sudo pacman -S" \
-	ls="ls -hN --color=auto --group-directories-first" \
 	m="git checkout master" \
 	mastre="master" \
 	mutt="neomutt" \
@@ -80,6 +79,7 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	songdl="youtube-dl --extract-audio --audio-format m4a --add-metadata --audio-quality 3 --write-thumbnail --continue" \
 	squash="git rebase -i master" \
 	susp="systemctl suspend" \
+	tmux="tmux -u" \
 	u="cd ../" \
 	update="pacaur -Syu" \
 	utdvpn="sudo openconnect vpn.utdallas.edu" \

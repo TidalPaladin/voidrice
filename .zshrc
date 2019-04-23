@@ -3,9 +3,11 @@
 #   Requires powerline, powerlevel9k, dmenu, zsh,
 #   neofetch, loadkeys
 
+export TERM="xterm-256color"
+
 # Start tmux on ssh
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
-    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+    tmux -u attach-session -t ssh_tmux || tmux -u new-session -s ssh_tmux
 fi
 
 # Exports
@@ -14,8 +16,6 @@ export TERM="xterm-256color"
 export DOTDIR="$HOME/voidrice"
 
 # Apply pywal theme and powerline
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
 source ~/.powerline
 neofetch
 
@@ -47,4 +47,3 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
-. "/etc/profile.d/conda.sh"
