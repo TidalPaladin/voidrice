@@ -1,21 +1,30 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
+# $FreeBSD: releng/11.2/etc/root/dot.profile 325815 2017-11-14 17:05:34Z trasz $
+#
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:~/bin
+export HOME=/root
+export PAGER=more
+export TERM="xterm-256color"
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+# Query terminal size; useful for serial lines.
+if [ -x /usr/bin/resizewin ] ; then /usr/bin/resizewin -z ; fi
+
+# Uncomment to display a random cookie on each login.
+# if [ -x /usr/bin/fortune ] ; then /usr/bin/fortune -s ; fi
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR='nvim'
-export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"
 export PAGER="less"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
-export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export KEYTIMEOUT=1
 export TERM="xterm-256color"
-export TERMINAL="alacritty"
-export LD_LIBRARY_PATH="/usr/lib64/${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
-export PATH="$PATH:/usr/local/cuda-10.0/bin/"
 
 # less/man colors
 export LESS=-R
@@ -28,16 +37,4 @@ export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
 [ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
-
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
-
-# Start graphical server if i3 not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
-
-# Switch escape and caps if tty:
-sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
-
-# Run pywal to apply color scheme
-wal -R
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
