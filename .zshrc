@@ -32,10 +32,12 @@ ZSH_HIGHLIGHT_HILIGHTERS=(main brackets pattern cursor)
 
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" # Load shortcut aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ ! -f "$HOME/.config/shortcutrc" ] && shortcuts >/dev/null 2>&1
 
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-autosuggestions", defer:3
 zplug 'bhilburn/powerlevel9k', as:theme, defer:2
+zplug 'laurenkt/zsh-vimto'
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
