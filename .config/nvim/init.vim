@@ -26,6 +26,7 @@ set mouse=a
 set nohlsearch
 set clipboard=unnamedplus
 set so=20
+set t_Co=256
 " Some basics:
 	set nocompatible
 	filetype plugin on
