@@ -32,7 +32,6 @@ ZSH_HIGHLIGHT_HILIGHTERS=(main brackets pattern cursor)
 
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" # Load shortcut aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-autosuggestions", defer:3
