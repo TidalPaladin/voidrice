@@ -3,11 +3,9 @@
 #   Requires powerline, powerlevel9k, dmenu, zsh,
 #   neofetch, loadkeys
 
-export TERM="xterm-256color"
-
 # Start tmux on ssh
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
-    tmux -u attach-session -t ssh_tmux || tmux -u new-session -s ssh_tmux
+    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
 
 # Exports

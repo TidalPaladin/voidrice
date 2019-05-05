@@ -79,7 +79,6 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	songdl="youtube-dl --extract-audio --audio-format m4a --add-metadata --audio-quality 3 --write-thumbnail --continue" \
 	squash="git rebase -i master" \
 	susp="systemctl suspend" \
-	tmux="tmux -u" \
 	u="cd ../" \
 	update="pacaur -Syu" \
 	utdvpn="sudo openconnect vpn.utdallas.edu" \

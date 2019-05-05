@@ -1,0 +1,19 @@
+#!/bin/sh
+file=$(readlink -f "$1")
+dir=$(dirname "$file")
+base="${file%.*}"
+
+cd "$dir" || exit
+
+echo "Scanning $file"
+convert \
+	-enhance \
+	-normalize \
+	-level 40%,60% \
+	-sharpen 2 \
+	"$1" \
+	-monochrome \
+	-density 1200 \
+	-normalize \
+	-format 'tiff' \
+	"$base.tiff"
