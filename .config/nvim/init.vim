@@ -19,6 +19,7 @@ Plug 'sirver/ultisnips'
 "Plug 'valloric/youcompleteme'
 Plug 'TidalPaladin/vim-snippets'
 Plug 'unblevable/quick-scope'
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 set bg=light
