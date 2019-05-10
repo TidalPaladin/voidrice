@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "Downloading $@"
 
 youtube-dl \
 	-x \
@@ -8,4 +9,4 @@ youtube-dl \
 	--embed-thumbnail \
 	--continue \
 	-o "%(title)s.%(ext)s" \
-	$@
+	"$@"
