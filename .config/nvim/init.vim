@@ -19,6 +19,7 @@ Plug 'sirver/ultisnips'
 "Plug 'valloric/youcompleteme'
 Plug 'TidalPaladin/vim-snippets'
 Plug 'unblevable/quick-scope'
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 set bg=light
@@ -26,6 +27,7 @@ set mouse=a
 set nohlsearch
 set clipboard=unnamedplus
 set so=20
+set t_Co=256
 " Some basics:
 	set nocompatible
 	filetype plugin on

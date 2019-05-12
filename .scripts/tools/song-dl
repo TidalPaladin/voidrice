@@ -1,0 +1,12 @@
+#!/bin/sh
+echo "Downloading $@"
+
+youtube-dl \
+	-x \
+	--audio-quality 0 \
+	--audio-format m4a \
+	--add-metadata \
+	--embed-thumbnail \
+	--continue \
+	-o "%(title)s.%(ext)s" \
+	"$@"

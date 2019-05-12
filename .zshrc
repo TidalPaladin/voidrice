@@ -36,6 +36,7 @@ ZSH_HIGHLIGHT_HILIGHTERS=(main brackets pattern cursor)
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-autosuggestions", defer:3
 zplug 'bhilburn/powerlevel9k', as:theme, defer:2
+zplug 'laurenkt/zsh-vimto'
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

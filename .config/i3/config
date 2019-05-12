@@ -44,6 +44,13 @@ for_window [title="dropdown_tmuxdd"] border pixel 3
 for_window [title="dropdown_dropdowncalc"] border pixel 2
 for_window [title="dropdown_*"] move position center
 
+for_window [class="Bitwarden"] floating enable
+for_window [class="Bitwarden"] move scratchpad
+for_window [class="Bitwarden"] sticky enable
+for_window [class="Bitwarden"] scratchpad show
+for_window [class="Bitwarden"] resize set 1920 1080
+for_window [class="Bitwarden"] move position center
+
 for_window [class="mpv"] floating enable
 for_window [class="mpv"] move scratchpad
 for_window [class="mpv"] sticky enable
@@ -51,6 +58,13 @@ for_window [class="mpv"] scratchpad show
 for_window [class="mpv"] border pixel 0
 for_window [class="mpv"] resize set 1280 720
 for_window [class="mpv"] move position 2560 px 1440 px
+
+for_window [class="Skype"] floating enable
+for_window [class="Skype"] move scratchpad
+for_window [class="Skype"] sticky enable
+for_window [class="Skype"] scratchpad show
+for_window [class="Skype"] resize set 1920 1080
+for_window [class="Skype"] move position center
 
 focus_follows_mouse no
 
@@ -79,6 +93,10 @@ exec --no-startup-id polybar -r center
 exec --no-startup-id polybar -r right
 # Swap keys
 exec --no-startup-id xmodmap $HOME/.scripts/ttymaps.kmap
+# Start bitwarden
+exec --no-startup-id bitwarden-bin
+# Start skype
+exec --no-startup-id skypeforlinux
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
@@ -177,13 +195,13 @@ bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
 #bindsym $mod+Shift+v
 
-bindsym $mod+b			exec --no-startup-id ddspawn qutebrowser --target window -basedir ~/.config/qutebrowser/dropdown --qt-arg name dropdown_browserdd
+bindsym $mod+b			[class="Bitwarden"] scratchpad show;
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
 
 bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id bottomright
 
-bindsym $mod+m			exec --no-startup-id ddspawn skypeforlinux
+bindsym $mod+m			[class="Skype"] scratchpad show;
 bindsym $mod+Shift+m		exec --no-startup-id lmc mute
 
 # #---Workspace Bindings---# #
