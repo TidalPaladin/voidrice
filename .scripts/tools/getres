@@ -1,0 +1,5 @@
+#!/bin/sh
+RES=$(xdpyinfo | awk '/dimensions/{print $2}')
+export RES_W=$(echo "${RES}" | awk -F x '{print $1}')
+export RES_H=$(echo "${RES}" | awk -F x '{print $2}')
+echo "${RES_W}x${RES_H}"
