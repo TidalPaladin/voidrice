@@ -29,6 +29,13 @@ set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
+set $res_w $RES_W
+set $res_h $RES_H
+
+# Resolution for dropdowns
+set $dd_w 50
+set $dd_h 33
+
 
 # #---Dropdown Windows---# #
 
@@ -37,18 +44,18 @@ for_window [title="dropdown_*"] floating enable
 for_window [title="dropdown_*"] move scratchpad
 for_window [title="dropdown_*"] sticky enable
 for_window [title="dropdown_*"] scratchpad show
-for_window [title="dropdown_tmuxdd"] resize set 1250 900
-for_window [title="dropdown_dropdowncalc"] resize set 900 1250
-for_window [title="dropdown_browserdd"] resize set 1920 1080
+for_window [title="dropdown_tmuxdd"] resize set $dd_w ppt $dd_h ppt
 for_window [title="dropdown_tmuxdd"] border pixel 3
+for_window [title="dropdown_dropdowncalc"] resize set 33 ppt 80 ppt
 for_window [title="dropdown_dropdowncalc"] border pixel 2
+for_window [title="dropdown_browserdd"] resize set 1920 1080
 for_window [title="dropdown_*"] move position center
 
 for_window [class="Bitwarden"] floating enable
 for_window [class="Bitwarden"] move scratchpad
 for_window [class="Bitwarden"] sticky enable
 for_window [class="Bitwarden"] scratchpad show
-for_window [class="Bitwarden"] resize set 1920 1080
+for_window [class="Bitwarden"] resize set $dd_w ppt $dd_h ppt
 for_window [class="Bitwarden"] move position center
 
 for_window [class="mpv"] floating enable
@@ -63,7 +70,7 @@ for_window [class="Skype"] floating enable
 for_window [class="Skype"] move scratchpad
 for_window [class="Skype"] sticky enable
 for_window [class="Skype"] scratchpad show
-for_window [class="Skype"] resize set 1920 1080
+for_window [class="Skype"] resize set $dd_w ppt $dd_h ppt
 for_window [class="Skype"] move position center
 
 focus_follows_mouse no
