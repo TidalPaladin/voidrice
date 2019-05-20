@@ -41,3 +41,6 @@ sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 wal -R
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
+
+# Load resolution into env vars
+source ~/.scripts/tools/getres
