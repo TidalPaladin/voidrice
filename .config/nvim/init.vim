@@ -3,6 +3,7 @@ let maplocalleader =" "
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
