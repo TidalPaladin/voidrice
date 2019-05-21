@@ -713,39 +713,39 @@ c.editor.encoding = 'utf-8'
 
 ## Font used in the completion categories.
 ## Type: Font
-c.fonts.completion.category = 'bold 12pt monospace'
+c.fonts.completion.category = 'bold 9pt monospace'
 
 ## Font used in the completion widget.
 ## Type: Font
-c.fonts.completion.entry = '12pt monospace'
+c.fonts.completion.entry = '9pt monospace'
 
 ## Font used for the debugging console.
 ## Type: QtFont
-c.fonts.debug_console = '12pt monospace'
+c.fonts.debug_console = '9pt monospace'
 
 ## Font used for the downloadbar.
 ## Type: Font
-c.fonts.downloads = '12pt monospace'
+c.fonts.downloads = '9pt monospace'
 
 ## Font used for the hints.
 ## Type: Font
-c.fonts.hints = 'bold 12pt monospace'
+c.fonts.hints = 'bold 9pt monospace'
 
 ## Font used in the keyhint widget.
 ## Type: Font
-c.fonts.keyhint = '12pt monospace'
+c.fonts.keyhint = '9pt monospace'
 
 ## Font used for error messages.
 ## Type: Font
-c.fonts.messages.error = '12pt monospace'
+c.fonts.messages.error = '9pt monospace'
 
 ## Font used for info messages.
 ## Type: Font
-c.fonts.messages.info = '12pt monospace'
+c.fonts.messages.info = '9pt monospace'
 
 ## Font used for warning messages.
 ## Type: Font
-c.fonts.messages.warning = '12pt monospace'
+c.fonts.messages.warning = '9pt monospace'
 
 ## Default monospace fonts. Whenever "monospace" is used in a font
 ## setting, it's replaced with the fonts listed here.
@@ -755,15 +755,15 @@ c.fonts.monospace = '"DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "An
 
 ## Font used for prompts.
 ## Type: Font
-c.fonts.prompts = '12pt sans-serif'
+c.fonts.prompts = '9pt sans-serif'
 
 ## Font used in the statusbar.
 ## Type: Font
-c.fonts.statusbar = '12pt monospace'
+c.fonts.statusbar = '9pt monospace'
 
 ## Font used in the tab bar.
 ## Type: QtFont
-c.fonts.tabs = '12pt monospace'
+c.fonts.tabs = '9pt monospace'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -791,11 +791,11 @@ c.fonts.web.family.standard = ''
 
 ## The default font size for regular text.
 ## Type: Int
-c.fonts.web.size.default = 16
+c.fonts.web.size.default = 12
 
 ## The default font size for fixed-pitch text.
 ## Type: Int
-c.fonts.web.size.default_fixed = 13
+c.fonts.web.size.default_fixed = 10
 
 ## The hard minimum font size.
 ## Type: Int
@@ -1298,7 +1298,7 @@ c.window.title_format = '{perc}{title}{title_sep}qutebrowser'
 
 ## The default zoom level.
 ## Type: Perc
-c.zoom.default = '175%'
+c.zoom.default = '100%'
 
 ## The available zoom levels.
 ## Type: List of Perc
