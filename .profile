@@ -16,6 +16,7 @@ export TERM="xterm-256color"
 export TERMINAL="alacritty"
 export LD_LIBRARY_PATH="/usr/lib64/${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
 export PATH="$PATH:/usr/local/cuda-10.0/bin/"
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 # less/man colors
 export LESS=-R
