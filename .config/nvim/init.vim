@@ -89,6 +89,15 @@ set t_Co=256
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
 
+" vim-fugitive git mappings
+	map <leader>gs :Gstatus<CR>
+	map <leader>gc :Gcommit<CR>
+	map <leader>gd :Gdiff<CR>
+	map <leader>gw :Gwrite<CR>
+	map <leader>gr :Gread<CR>
+	map <leader>ge :Gedit<CR>
+	map <leader>gl :Glog<CR>
+
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
 
