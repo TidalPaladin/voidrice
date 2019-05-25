@@ -1,0 +1,27 @@
+#!/bin/sh
+# Generates Yubikey PAM keys for sudo
+
+
+DIR="$HOME/.config/Yubico"
+KEY_FILE="u2f_keys"
+KEY_PATH="$DIR/$KEY_FILE"
+mkdir -p "$DIR"
+
+# Generate keys and write to target file
+echo "Staring key generation to $KEY_PATH"
+echo "Press the button on your device..."
+pamu2fcfg > "$KEY_PATH"
+
+PAM_TAR="pam_u2f.so"
+PAM_FILE="/etc/pam.d/sudo"
+PAM_LINE_OPT="auth sufficient $PAM_TAR cue"
+#PAM_LINE_REQ='auth		sufficient	pam_u2f.so'
+
+# Write keys as auth target in pam files
+echo "Modifying $PAM_FILE"
+grep "$PAM_TAR" "$PAM_FILE"
+if [ ! $? ]; then
+	echo "File already contained auth entry"
+else
+	sudo sed -i "1i$PAM_LINE_OPT" "$PAM_FILE"
+fi
