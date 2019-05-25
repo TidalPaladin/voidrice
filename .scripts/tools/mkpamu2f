@@ -1,0 +1,13 @@
+#!/bin/sh
+# Generates Yubikey PAM keys for sudo
+
+DEST="$HOME/.config/Yubico"
+
+mkdir -p "$DEST"
+pamu2fcfg > "$DEST/u2f_keys"
+
+PAM_FILE="/etc/pam.d/sudo"
+PAM_LINE_OPT='auth		sufficient	pam_u2f.so'
+#PAM_LINE_REQ='auth		sufficient	pam_u2f.so'
+
+grep -qxF "$PAM_LINE_OPT" || echo "$PAM_LINE_OPT" >> "$PAM_FILE"
