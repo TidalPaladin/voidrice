@@ -36,12 +36,13 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 
 # Switch escape and caps if tty:
-sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
+LOADKEYS="$HOME/.scripts/ttymaps.kmap"
+[ -f "$LOADKEYS" ] && sudo -n loadkeys "$LOADKEYS" 2>/dev/null
 
 # Run pywal to apply color scheme
-wal -R
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+if [ $(command -v wal) ]; then
+	wal -R >/dev/null 2>&1
+fi
 
 # Load resolution into env vars
-source ~/.scripts/tools/getres
+[ -f "$HOME/.scripts/tools/getres" ] && source "$HOME/.scripts/tools/getres" >/dev/null
