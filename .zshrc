@@ -48,4 +48,8 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
-. "/etc/profile.d/conda.sh"
+
+# Anaconda
+if [ -f "/etc/profile.d/conda.sh" ]; then
+	. "/etc/profile.d/conda.sh"
+fi
