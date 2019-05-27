@@ -14,9 +14,11 @@ export TERM="xterm-256color"
 export DOTDIR="$HOME/voidrice"
 
 # Apply pywal theme and powerline
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
-source ~/.powerline
+WAL_DIR="$HOME/.cache/wal"
+[ -f "$WAL_DIR/sequences" ] && (cat "$WAL_DIR/sequences" &)
+[ -f "$WAL_DIR/colors-tty.sh" ] && source "$WAL_DIR/colors-tty.sh"
+[ -f "$HOME/.powerline" ] && source "$HOME/.powerline"
+
 neofetch
 
 # Helps to hide username at console prompt?
@@ -30,13 +32,15 @@ COMPLETION_WAITING_DOTS="true"
 
 ZSH_HIGHLIGHT_HILIGHTERS=(main brackets pattern cursor)
 
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" # Load shortcut aliases
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-source ~/.zplug/init.zsh
-zplug "zsh-users/zsh-autosuggestions", defer:3
-zplug 'bhilburn/powerlevel9k', as:theme, defer:2
-zplug 'laurenkt/zsh-vimto'
+if [ -f "$HOME/.zplug/init.zsh" ]; then
+	source ~/.zplug/init.zsh
+	zplug "zsh-users/zsh-autosuggestions", defer:3
+	zplug 'bhilburn/powerlevel9k', as:theme, defer:2
+	zplug 'laurenkt/zsh-vimto'
+fi
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -50,6 +54,4 @@ fi
 zplug load
 
 # Anaconda
-if [ -f "/etc/profile.d/conda.sh" ]; then
-	. "/etc/profile.d/conda.sh"
-fi
+[ -f "/etc/profile.d/conda.sh" ] && . "/etc/profile.d/conda.sh"
