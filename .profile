@@ -2,13 +2,13 @@
 # Profile file. Runs on login.
 
 # Adds `~/.scripts` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR='nvim'
 export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"
 export PAGER="less"
-export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
+export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export KEYTIMEOUT=1
@@ -36,7 +36,7 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 
 # Switch escape and caps if tty:
-LOADKEYS="$HOME/.scripts/ttymaps.kmap"
+LOADKEYS="$HOME/.local/bin/ttymaps.kmap"
 [ -f "$LOADKEYS" ] && sudo -n loadkeys "$LOADKEYS" 2>/dev/null
 
 # Run pywal to apply color scheme
