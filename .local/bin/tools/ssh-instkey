@@ -1,0 +1,26 @@
+#!/bin/sh
+# Installs SSH public keys
+
+# Provide an alternate directory to search for public keys
+# with $1
+
+KEYFILE="$HOME/.ssh/authorized_keys"
+KEY_SRC=$(readlink -f "$1" || echo "$HOME/.ssh")
+
+if [ ! -f $KEYFILE ]; then
+	echo "Cannot find authorized keyfile $KEYFILE" > 2
+	exit 1
+else
+	echo "Using authorized key file $KEYFILE"
+fi
+
+for pubkey in $KEY_SRC/*.pub; do
+	line=$(cat $pubkey)
+	grep -xFq "$line" $KEYFILE
+	if [ $? -ne 0 ]; then
+		echo "$line" >> "$KEYFILE" && echo "Installed $pubkey"
+	else
+		echo "$pubkey was already installed"
+	fi
+done
+
