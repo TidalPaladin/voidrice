@@ -1,6 +1,12 @@
 #!/bin/sh
 # Generates Yubikey PAM keys for sudo
 
+# Require pamu2cfg from pam-u2f
+if [ ! $(command -v pamu2fcfg) ]; then
+	echo "Missing pamu2fcfg, please install pam-u2f"
+	exit 1
+fi
+
 DIR="$HOME/.config/Yubico"
 KEY_FILE="u2f_keys"
 KEY_PATH="$DIR/$KEY_FILE"
