@@ -108,7 +108,7 @@ set t_Co=256
 
 " vim-fugitive git mappings
 	map <leader>gs :Gstatus<CR>
-	map <leader>gc :Gcommit -v <c-r>%<CR>
+	map <leader>gc :Gcommit -v<CR>
 	map <leader>gd :Gdiff<CR>
 	map <leader>gw :Gwrite<CR>
 	map <leader>gr :Gread<CR>
