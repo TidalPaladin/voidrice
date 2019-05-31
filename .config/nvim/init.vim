@@ -29,6 +29,7 @@ set nohlsearch
 set clipboard=unnamedplus
 set so=20
 set t_Co=256
+
 " Some basics:
 	set nocompatible
 	filetype plugin on
@@ -37,8 +38,22 @@ set t_Co=256
 	set number relativenumber
 	set shiftwidth=2
 	set tabstop=2
+
+" Macro efficiency - skip term redraw during macros
+	set lazyredraw
+
+" Case insensitive for lowercase searches, case sensitive otherwise
+	set smartcase/ignorecase
+
+" Persistent undo file
+	set undofile
+
+" Smart case search
+	set smartcase/ignorecase
+
 " Enable autocompletion:
 	set wildmode=longest,list,full
+
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
