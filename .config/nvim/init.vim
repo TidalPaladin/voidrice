@@ -77,6 +77,8 @@ set t_Co=256
 	"imap <leader>i <esc>:call ToggleIPA()<CR>a
 	"nm <leader>q :call ToggleProse()<CR>
 
+	nnoremap Q @@
+
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
 	map <C-j> <C-w>j
