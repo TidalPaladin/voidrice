@@ -43,13 +43,11 @@ set t_Co=256
 	set lazyredraw
 
 " Case insensitive for lowercase searches, case sensitive otherwise
-	set smartcase/ignorecase
+	set smartcase
+	set ignorecase
 
 " Persistent undo file
 	set undofile
-
-" Smart case search
-	set smartcase/ignorecase
 
 " Enable autocompletion:
 	set wildmode=longest,list,full
