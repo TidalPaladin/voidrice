@@ -17,6 +17,9 @@ export TERMINAL="alacritty"
 export LD_LIBRARY_PATH="/usr/lib64/${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
 export PATH="$PATH:/usr/local/cuda-10.0/bin/"
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export GPG_KEYID=0x245CB0E53BD78BFA
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 
 # less/man colors
 export LESS=-R
@@ -46,3 +49,6 @@ fi
 
 # Load resolution into env vars
 [ -f "$HOME/.scripts/tools/getres" ] && source "$HOME/.scripts/tools/getres" >/dev/null
+
+# Start GPG ssh
+gpg-connect-agent updatestartuptty /bye
