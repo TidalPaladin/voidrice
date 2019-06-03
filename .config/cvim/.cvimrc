@@ -1,0 +1,48 @@
+set nohud
+set nosmoothscroll
+set noautofocus " The opposite of autofocus; this setting stops
+                " sites from focusing on an input box when they load
+set typelinkhints
+let searchlimit = 30
+let scrollstep = 70
+let barposition = "bottom"
+let hintcharacters = "asdfjkl"
+" alias ':g' to ':tabnew google'
+" command g tabnew google
+let completionengines = ["duckduckgo"]
+let defaultengine = "duckduckgo"
+" Open all of these in a tab with `gnb` or open one of these with <N>goa where <N>
+" let qmark a = ["http://www.reddit.com", "http://www.google.com", "http://twitter.com"]
+" blacklists prefixed by '@' act as a whitelist
+let mapleader = " "
+" Mappings
+map <Leader>r reloadTabUncached
+map <Leader>x :restore<Space>
+map <Leader>y :open youtube.com
+map <Leader>Y :tabnew youtube.com
+" You can use <Space>, which is interpreted as a
+" literal " " character, to enter buffer completion mode
+map gb :buffer<Space>
+" Toggle the current HUD display value
+map <C-h> :set hud!<CR>
+iunmap <C-y>
+imap <C-m> deleteWord
+" Use paste buffer in mappings
+map T :tabnew wikipedia @"<CR>
+" Code blocks (see below for more info)
+getIP() -> {{
+httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
+            function(res) { Status.setMessage('IP: ' + res.ip); });
+}}
+" Displays your public IP address in the status bar
+map ci :call getIP<CR>
+" Script hints
+echo(link) -> {{
+  alert(link.href);
+}}
+map <C-f> createScriptHint(echo)
+"let configpath = '/path/to/your/.cvimrc'
+"set localconfig " Update settings via a local file (and the `:source` command) rather
+                " than the default options page in chrome
+" As long as localconfig is set in the .cvimrc file. cVim will continue to read
+" settings from there
