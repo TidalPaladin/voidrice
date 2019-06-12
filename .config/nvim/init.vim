@@ -28,7 +28,7 @@ set bg=light
 set mouse=a
 set nohlsearch
 set clipboard=unnamedplus
-set so=20
+set so=5
 set t_Co=256
 
 " Some basics:
