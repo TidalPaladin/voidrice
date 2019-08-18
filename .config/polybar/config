@@ -17,107 +17,20 @@
 ;==========================================================
 
 [colors]
-background = ${xrdb:color0:#222}
-foreground = ${xrdb:color4:#222}
-foreground-alt = ${xrdb:color7:#222}
-primary = ${xrdb:color1:#222}
-secondary = ${xrdb:color2:#222}
-alert = ${xrdb:color3:#222}
+background = ${xrdb:bg:#111}
+background-alt = #444
+foreground = ${xrdb:fg:#ddd}
+foreground-alt = #555
+primary = #ffb52a
+secondary = ${xrdb:sec:#f44}
+alert = ${xrdb:accent:#f99}
 rad = 0
-
-[bar/left]
-;monitor = DP-1
-width = 19%
-height = 35
-offset-x = 1.75%
-offset-y = 15
-radius-top = ${colors.rad}
-radius-bottom = ${colors.rad}
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 0
-border-color = #000000
-
-padding-left = 3
-padding-right = 3
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = "Iosevka Term:style=Regular:pixelsize=18;2"
-font-1 = "TerminessTTF Nerd Font:style=Regular:pixelsize=18;2"
-font-2 = "FontAwesome:pixelsize=14;0"
-
-modules-center =
-modules-left = ewmh
-modules-right = filesystem
-
-tray-position = left
-;tray-background = #FF000000
-
-wm-restack = i3
-
-override-redirect = true
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-
-[bar/right]
-;monitor = DP-1
-width = 18%
-height = 35
-offset-x = 80.25%
-offset-y = 15
-radius-top = ${colors.rad}
-radius-bottom = ${colors.rad}
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 0
-border-color = #000000
-
-padding-left = 4
-padding-right = 4
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = "Iosevka Term:style=Regular:pixelsize=18;2"
-font-1 = "TerminessTTF Nerd Font:style=Regular:pixelsize=18;2"
-font-2 = "FontAwesome:pixelsize=14;0"
-
-modules-left = lan
-modules-center =
-modules-right = pulseaudio memory cpu temperature
-
-tray-position =
-tray-transparent = false
-tray-background = #e6111111
-
-wm-restack = i3
-
-override-redirect = true
-
-cursor-click = pointer
-cursor-scroll = ns-resize
 
 [bar/center]
 ;monitor = DP-1
-width = 14%
+width = 96%
 height = 35
-offset-x = 43%
+offset-x = 2%
 offset-y = 15
 radius-top = ${colors.rad}
 radius-bottom = ${colors.rad}
@@ -132,108 +45,23 @@ line-color = #f00
 border-size = 0
 border-color = #000000
 
-padding-left = 3
+padding-left = 2
 padding-right = 3
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 0
+module-margin-right = 2
 
-font-0 = "Iosevka Term:style=Regular:pixelsize=18;2"
-font-1 = "TerminessTTF Nerd Font:style=Regular:pixelsize=18;2"
-font-2 = "FontAwesome:pixelsize=14;0"
+font-0 = "Iosevka Term:size=18;2"
+font-1 = "TerminessTTF Nerd Font:size=18;2"
+font-2 = "FontAwesome:size=18;0"
+separator = │
 
-modules-left =
 modules-center = date
-modules-right =
-
-tray-position =
-tray-transparent = false
-tray-background = #111
-
-wm-restack = i3
-
-override-redirect = true
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/full]
-monitor = DP-1
-width = 96.5%
-height = 35
-offset-x = 1.75%
-offset-y = 25
-radius =
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 0
-border-color = #000000
-
-padding-left = 3
-padding-right = 3
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = "Terminus:style=Regular:pixelsize=17;2"
-font-1 = "TerminessTTF Nerd Font:style=Regular:pixelsize=15;2"
-font-2 = "FontAwesome:pixelsize=12;2"
-
 modules-left = ewmh filesystem wlan
-modules-center = date
-modules-right = pulseaudio memory cpu temperature
+modules-right = battery pulseaudio memory cpu temperature
 
-tray-position =
-tray-transparent = true
-tray-background = #0063ff
-
-wm-restack = i3
-
-override-redirect = true
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/bottom]
-monitor = DP-1
-width = 40%
-height = 35
-offset-x = 30%
-offset-y = 1040
-radius-top = ${colors.rad}
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 0
-border-color = #000000
-
-padding-left = 3
-padding-right = 3
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = "Terminus:style=Regular:pixelsize=17;2"
-font-1 = "TerminessTTF Nerd Font:style=Regular:pixelsize=15;2"
-font-2 = "FontAwesome:pixelsize=12;2"
-
-modules-left =
-modules-center = title
-modules-right =
-
-tray-position =
-tray-transparent = true
+tray-position = left
+tray-transparent = false
 tray-background = #0063ff
 
 wm-restack = i3
@@ -333,10 +161,10 @@ interval = 25
 
 mount-0 = /
 mount-1 = /home
-mount-2 = /mnt/Storage
+;mount-2 = /mnt/Storage
 
-label-mounted =  %mountpoint% %percentage_used%%
-label-unmounted = %mountpoint% ?
+label-mounted =  %mountpoint% %percentage_used:3%%
+label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/cpu]
@@ -349,13 +177,13 @@ interval = 0.5
 ;   <ramp-load>
 ;   <ramp-coreload>
 
-format = <label> <ramp-load>
+format = <label>
 
 ; Available tokens:
 ;   %percentage% (default) - total cpu load
 ;   %percentage-cores% - load percentage for each core
 ;   %percentage-core[1-9]% - load percentage for specific core
-label =  %percentage%%
+label =  %percentage:3%%
 
 ; Spacing between individual per-core ramps (unreleased)
 ramp-coreload-spacing = 0
@@ -392,7 +220,7 @@ interval = 3
 ;   <bar-swap-free> (unreleased)
 ;   <ramp-swap-used> (unreleased)
 ;   <ramp-swap-free> (unreleased)
-format = <label> <ramp-used>
+format = <label>
 
 ; Available tokens:
 ;   %percentage_used% (default)
@@ -412,7 +240,7 @@ format = <label> <ramp-used>
 ;   %gb_swap_free%
 ;   %gb_swap_used%
 
-label =  %percentage_used%%
+label =  %percentage_used:3%%
 
 ; Only applies if <bar-used> is used
 bar-used-indicator =
@@ -435,93 +263,9 @@ ramp-used-5 = ▆
 ramp-used-6 = ▇
 ramp-used-7 = █
 
-[module/mpd]
-type = internal/mpd
-
-; Host where mpd is running (either ip or domain name)
-; Can also be the full path to a unix socket where mpd is running.
-host = 127.0.0.1
-port = 6600
-;password = ChaseBowser1993!
-
-; Seconds to sleep between progressbar/song timer sync
-; Default: 1
-interval = 2
-
-; Available tags:
-;   <label-song> (default)
-;   <label-time>
-;   <bar-progress>
-;   <toggle> - gets replaced with <icon-(pause|play)>
-;   <toggle-stop> - gets replaced with <icon-(stop|play)>
-;   <icon-random>
-;   <icon-repeat>
-;   <icon-repeatone> (deprecated)
-;   <icon-single> - Toggle playing only a single song. Replaces <icon-repeatone>
-;   <icon-consume>
-;   <icon-prev>
-;   <icon-stop>
-;   <icon-play>
-;   <icon-pause>
-;   <icon-next>
-;   <icon-seekb>
-;   <icon-seekf>
-format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
-;format-playing = ${self.format-online}
-;format-paused = ${self.format-online}
-;format-stopped = ${self.format-online}
-
-; Available tags:
-;   <label-offline>
-;format-offline = <label-offline>
-
-; Available tokens:
-;   %artist%
-;   %album-artist%
-;   %album%
-;   %date%
-;   %title%
-; Default: %artist% - %title%
-label-song = 𝄞 %artist% - %title%
-
-; Available tokens:
-;   %elapsed%
-;   %total%
-; Default: %elapsed% / %total%
-;label-time = %elapsed% / %total%
-
-; Available tokens:
-;   None
-label-offline = 🎜 mpd is offline
-
-; Only applies if <icon-X> is used
-icon-play = ⏵
-icon-pause = ⏸
-icon-stop = ⏹
-icon-prev = ⏮
-icon-next = ⏭
-icon-seekb = ⏪
-icon-seekf = ⏩
-icon-random = 🔀
-icon-repeat = 🔁
-icon-repeatone = 🔂
-icon-single = 🔂
-icon-consume = ✀
-
-; Used to display the state of random/repeat/repeatone/single
-; Only applies if <icon-[random|repeat|repeatone|single]> is used
-toggle-on-foreground = #ff
-toggle-off-foreground = #55
-
-; Only applies if <bar-progress> is used
-bar-progress-width = 45
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
-
 [module/wlan]
 type = internal/network
-interface = wlp6s0
+interface = wlp3s0
 interval = 3.0
 ; 🠅🠇
 
@@ -539,18 +283,6 @@ ramp-signal-0 =
 ramp-signal-1 =
 ramp-signal-2 =
 ramp-signal-foreground = ${colors.foreground-alt}
-
-[module/lan]
-type = internal/network
-interface = eno1
-interval = 3.0
-
-format-connected = <label-connected>
-format-connected-overline =
-label-connected = U %downspeed:1:10% D %upspeed:1:10%
-
-format-disconnected = <label-disconnected>
-format-disconnected-overline = ${self.format-connected-overline}
 
 [module/date]
 type = internal/date
@@ -650,8 +382,8 @@ poll-interval = 5
 format-charging = <ramp-capacity> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 
-label-charging =  %percentage%%
-label-discharging = %percentage%%
+label-charging =  %percentage:3%%
+label-discharging = %percentage:3%%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
