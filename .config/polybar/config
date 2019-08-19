@@ -54,7 +54,7 @@ module-margin-right = 2
 font-0 = "Iosevka Term:size=18;2"
 font-1 = "TerminessTTF Nerd Font:size=18;2"
 font-2 = "FontAwesome:size=18;0"
-separator = │
+separator = " │ "
 
 modules-center = date
 modules-left = ewmh filesystem wlan
