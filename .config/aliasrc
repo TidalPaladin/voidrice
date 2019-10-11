@@ -84,6 +84,7 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	update="pacaur -Syu" \
 	utdvpn="sudo openconnect vpn.utdallas.edu" \
 	vimrc="vim $DOTDIR/.config/nvim/init.vim && cp $DOTDIR/.config/nvim/init.vim $HOME/.config/nvim/" \
+	zip="zip -r"
 	zshrc="vim $DOTDIR/.zshrc && cp $DOTDIR/.zshrc $HOME/ && source $HOME/.zshrc"
 
 alias -g alg="/mnt/valak/documents/school/CS6363" \
