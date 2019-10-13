@@ -1529,3 +1529,4 @@ config.bind('<Escape>', 'leave-mode', mode='register')
 config.source('shortcuts.py')
 
 config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --ytdl-format=best --force-window yes {hint-url}')
+config.bind('<Ctrl-Shift-p>', 'spawn --userscript qute-bitwarden')
