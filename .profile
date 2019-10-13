@@ -2,7 +2,7 @@
 # Profile file. Runs on login.
 
 # Adds `~/.scripts` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="${PATH}$(find -L $HOME/.local/bin -name '.*' -prune -o -type d -printf ':%p')"
 export EDITOR='nvim'
 export BROWSER="qutebrowser"
 export READER="zathura"
