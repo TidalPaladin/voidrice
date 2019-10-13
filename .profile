@@ -43,12 +43,10 @@ LOADKEYS="$HOME/.local/bin/ttymaps.kmap"
 [ -f "$LOADKEYS" ] && sudo -n loadkeys "$LOADKEYS" 2>/dev/null
 
 # Run pywal to apply color scheme
-if [ $(command -v wal) ]; then
-	wal -R >/dev/null 2>&1
-fi
+[ $(command -v wal) ] && wal -R >/dev/null 2>&1
 
 # Load resolution into env vars
-[ -f "$HOME/.scripts/tools/getres" ] && source "$HOME/.scripts/tools/getres" >/dev/null
+[ -f "$HOME/.local/bin/tools/getres" ] && source "$HOME/.local/bin/tools/getres" >/dev/null
 
 # Start GPG ssh
 gpg-connect-agent updatestartuptty /bye
