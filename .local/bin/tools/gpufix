@@ -1,4 +1,6 @@
 #!/bin/sh
+# Resets Nvidia drivers to fix CUDA_UNKNOWN_ERROR
+sudo -A -- sh <<EOF
 modprobe -r nvidia_uvm
 modprobe -r nvidia_drm
 modprobe -r nvidia_modeset
@@ -7,3 +9,4 @@ modprobe nvidia
 modprobe nvidia_modeset
 modprobe nvidia_drm
 modprobe nvidia_uvm
+EOF

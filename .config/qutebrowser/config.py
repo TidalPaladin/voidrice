@@ -423,23 +423,6 @@ c.completion.web_history.max_items = -1
 ##   - never: Never show a confirmation.
 c.confirm_quit = ['never']
 
-## Whether support for the HTML 5 web application cache feature is
-## enabled. An application cache acts like an HTTP cache in some sense.
-## For documents that use the application cache via JavaScript, the
-## loader engine will first ask the application cache for the contents,
-## before hitting the network.
-## Type: Bool
-c.content.cache.appcache = True
-
-## The maximum number of pages to hold in the global memory page cache.
-## The Page Cache allows for a nicer user experience when navigating
-## forth or back to pages in the forward/back history, by pausing and
-## resuming up to _n_ pages. For more information about the feature,
-## please refer to: http://webkit.org/blog/427/webkit-page-cache-i-the-
-## basics/
-## Type: Int
-c.content.cache.maximum_pages = 0
-
 ## Size of the HTTP network cache. Null to use the default value. With
 ## QtWebEngine, the maximum supported value is 2147483647 (~2 GB).
 ## Type: Int
@@ -452,7 +435,7 @@ c.content.cache.size = None
 ##   - no-3rdparty: Accept cookies from the same origin only.
 ##   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain.
 ##   - never: Don't accept cookies at all.
-c.content.cookies.accept = 'no-3rdparty'
+#c.content.cookies.accept = 'no-3rdparty'
 
 ## Store cookies. Note this option needs a restart with QtWebEngine on Qt
 ## < 5.9.
@@ -467,11 +450,6 @@ c.content.default_encoding = 'iso-8859-1'
 ## Try to pre-fetch DNS entries to speed up browsing.
 ## Type: Bool
 c.content.dns_prefetch = True
-
-## Expand each subframe to its contents. This will flatten all the frames
-## to become one scrollable page.
-## Type: Bool
-c.content.frame_flattening = False
 
 ## Allow websites to request geolocations.
 ## Type: BoolAsk
@@ -495,14 +473,6 @@ c.content.headers.custom = {}
 ## Type: Bool
 c.content.headers.do_not_track = True
 
-## Send the Referer header. The Referer header tells websites from which
-## website you were coming from when visting them.
-## Type: String
-## Valid values:
-##   - always: Always send the Referer.
-##   - never: Never send the Referer. This is not recommended, as some sites may break.
-##   - same-domain: Only send the Referer for the same domain. This will still protect your privacy, but shouldn't break any sites.
-c.content.headers.referer = 'same-domain'
 
 ## User agent to send. Unset to send the default.
 ## Type: String
@@ -543,10 +513,6 @@ c.content.javascript.alert = True
 ## is always allowed.
 ## Type: Bool
 c.content.javascript.can_access_clipboard = False
-
-## Whether JavaScript can close tabs.
-## Type: Bool
-c.content.javascript.can_close_tabs = False
 
 ## Whether JavaScript can open new tabs without user interaction.
 ## Type: Bool
@@ -634,10 +600,6 @@ c.content.private_browsing = False
 ##c.content.proxy = 'socks://localhost:9050'
 c.content.proxy = 'none'
 
-## Send DNS requests over the configured proxy.
-## Type: Bool
-c.content.proxy_dns_requests = True
-
 ## Validate SSL handshakes.
 ## Type: BoolAsk
 ## Valid values:
@@ -713,39 +675,39 @@ c.editor.encoding = 'utf-8'
 
 ## Font used in the completion categories.
 ## Type: Font
-c.fonts.completion.category = 'bold 9pt monospace'
+c.fonts.completion.category = 'bold 6pt monospace'
 
 ## Font used in the completion widget.
 ## Type: Font
-c.fonts.completion.entry = '9pt monospace'
+c.fonts.completion.entry = '6pt monospace'
 
 ## Font used for the debugging console.
 ## Type: QtFont
-c.fonts.debug_console = '9pt monospace'
+c.fonts.debug_console = '6pt monospace'
 
 ## Font used for the downloadbar.
 ## Type: Font
-c.fonts.downloads = '9pt monospace'
+c.fonts.downloads = '6pt monospace'
 
 ## Font used for the hints.
 ## Type: Font
-c.fonts.hints = 'bold 9pt monospace'
+c.fonts.hints = 'bold 6pt monospace'
 
 ## Font used in the keyhint widget.
 ## Type: Font
-c.fonts.keyhint = '9pt monospace'
+c.fonts.keyhint = '6pt monospace'
 
 ## Font used for error messages.
 ## Type: Font
-c.fonts.messages.error = '9pt monospace'
+c.fonts.messages.error = '6pt monospace'
 
 ## Font used for info messages.
 ## Type: Font
-c.fonts.messages.info = '9pt monospace'
+c.fonts.messages.info = '6pt monospace'
 
 ## Font used for warning messages.
 ## Type: Font
-c.fonts.messages.warning = '9pt monospace'
+c.fonts.messages.warning = '6pt monospace'
 
 ## Default monospace fonts. Whenever "monospace" is used in a font
 ## setting, it's replaced with the fonts listed here.
@@ -755,15 +717,15 @@ c.fonts.monospace = '"DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "An
 
 ## Font used for prompts.
 ## Type: Font
-c.fonts.prompts = '9pt sans-serif'
+c.fonts.prompts = '6pt sans-serif'
 
 ## Font used in the statusbar.
 ## Type: Font
-c.fonts.statusbar = '9pt monospace'
+c.fonts.statusbar = '6pt monospace'
 
 ## Font used in the tab bar.
 ## Type: QtFont
-c.fonts.tabs = '9pt monospace'
+c.fonts.tabs = '6pt monospace'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -831,13 +793,6 @@ c.hints.chars = 'asdfghjkl'
 ## The dictionary file to be used by the word hints.
 ## Type: File
 c.hints.dictionary = '/usr/share/dict/words'
-
-## Which implementation to use to find elements to hint.
-## Type: String
-## Valid values:
-##   - javascript: Better but slower
-##   - python: Slightly worse but faster
-c.hints.find_implementation = 'python'
 
 ## Hide unmatched hints in rapid mode.
 ## Type: Bool
@@ -1299,6 +1254,7 @@ c.window.title_format = '{perc}{current_title}{title_sep}qutebrowser'
 ## The default zoom level.
 ## Type: Perc
 c.zoom.default = '100%'
+c.qt.highdpi = True
 
 ## The available zoom levels.
 ## Type: List of Perc
@@ -1308,11 +1264,6 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 ## zoom increments.
 ## Type: Int
 c.zoom.mouse_divider = 512
-
-## Whether the zoom factor on a frame applies only to the text or to all
-## content.
-## Type: Bool
-c.zoom.text_only = False
 
 ## Bindings for normal mode
 config.bind("'", 'enter-mode jump_mark')
@@ -1578,3 +1529,4 @@ config.bind('<Escape>', 'leave-mode', mode='register')
 config.source('shortcuts.py')
 
 config.bind('<Ctrl-Shift-y>', 'hint links spawn --detach mpv --ytdl-format=best --force-window yes {hint-url}')
+config.bind('<Ctrl-Shift-p>', 'spawn --userscript qute-bitwarden')

@@ -32,8 +32,8 @@ COMPLETION_WAITING_DOTS="true"
 
 ZSH_HIGHLIGHT_HILIGHTERS=(main brackets pattern cursor)
 
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" > /dev/null 2&>1
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" > /dev/null 2&>1
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" > /dev/null 2>&1
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" > /dev/null 2>&1
 
 if [ -f "$HOME/.zplug/init.zsh" ]; then
 	source ~/.zplug/init.zsh

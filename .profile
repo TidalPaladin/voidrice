@@ -2,7 +2,7 @@
 # Profile file. Runs on login.
 
 # Adds `~/.scripts` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="${PATH}$(find -L $HOME/.local/bin -name '.*' -prune -o -type d -printf ':%p')"
 export EDITOR='nvim'
 export BROWSER="qutebrowser"
 export READER="zathura"
@@ -16,7 +16,7 @@ export TERM="xterm-256color"
 export TERMINAL="alacritty"
 export LD_LIBRARY_PATH="/usr/lib64/${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
 export PATH="$PATH:/usr/local/cuda-10.0/bin/"
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_SCALE_FACTOR=1.75
 export GPG_KEYID=0x245CB0E53BD78BFA
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
@@ -43,12 +43,10 @@ LOADKEYS="$HOME/.local/bin/ttymaps.kmap"
 [ -f "$LOADKEYS" ] && sudo -n loadkeys "$LOADKEYS" 2>/dev/null
 
 # Run pywal to apply color scheme
-if [ $(command -v wal) ]; then
-	wal -R >/dev/null 2>&1
-fi
+[ $(command -v wal) ] && wal -R >/dev/null 2>&1
 
 # Load resolution into env vars
-[ -f "$HOME/.scripts/tools/getres" ] && source "$HOME/.scripts/tools/getres" >/dev/null
+[ -f "$HOME/.local/bin/tools/getres" ] && source "$HOME/.local/bin/tools/getres" >/dev/null
 
 # Start GPG ssh
 gpg-connect-agent updatestartuptty /bye
