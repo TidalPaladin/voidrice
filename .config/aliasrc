@@ -70,6 +70,7 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	mutt="neomutt" \
 	now="date +%Y-%m-%d.%H:%M:%S" \
 	pia="bash $HOME/.pia.sh" \
+  qutebrowser="qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4" \
 	raidstart="mdadm --assemble --scan && mount -a" \
 	ranger="ranger && cat /home/tidal/.cache/wal/sequences" \
 	reattach="tmux attach" \
