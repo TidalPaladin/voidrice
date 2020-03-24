@@ -76,3 +76,6 @@ name = 'tmux'
 
 [[layers]]
 name = 'sudo'
+
+[[layers]]
+name = 'lang#r'
