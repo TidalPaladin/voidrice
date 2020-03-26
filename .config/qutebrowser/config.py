@@ -476,7 +476,7 @@ c.content.headers.do_not_track = True
 
 ## User agent to send. Unset to send the default.
 ## Type: String
-c.content.headers.user_agent = None
+#c.content.headers.user_agent = None
 
 ## Whether host blocking is enabled.
 ## Type: Bool
@@ -713,7 +713,7 @@ c.fonts.messages.warning = '6pt monospace'
 ## setting, it's replaced with the fonts listed here.
 ## Type: Font
 #c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
-c.fonts.monospace = '"DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+#c.fonts.monospace = '"DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
 
 ## Font used for prompts.
 ## Type: Font
