@@ -50,6 +50,7 @@ get_session(){
 		fluxbox) dbus_args+=(startfluxbox) ;;
 		gnome) dbus_args+=(gnome-session) ;;
 		i3|i3wm) dbus_args+=(i3 --shmlog-size 0) ;;
+		dwm) dbus_args+=(dwm) ;;
 		jwm) dbus_args+=(jwm) ;;
 		kde) dbus_args+=(startkde) ;;
 		lxde) dbus_args+=(startlxde) ;;
@@ -64,3 +65,4 @@ get_session(){
 }
 
 exec $(get_session)
+#exec dwm

@@ -1,0 +1,69 @@
+Xft.dpi: 145
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+*background:                      #272827
+*foreground:                      #657b83
+*fading:                          15
+*fadeColor:                       black
+*cursorColor:                     #179cb7
+*pointerColorBackground:          #2B2C2B
+*pointerColorForeground:          #179cb7
+
+!! black dark/light
+*color0:                          #232423
+*color8:                          #282928
+
+!! red dark/light
+*color1:                          #cc1c54
+*color9:                          #CC372C
+
+!! green dark/light
+*color2:                          #7E807E
+*color10:                         #8D8F8D
+
+!! yellow dark/light
+*color3:                          #e957f9
+*color11:                         #4E524F
+
+!! blue dark/light
+*color4:                          #c03ee0
+*color12:                         #13BF9D
+
+!! magenta dark/light
+*color5:                          #9435dd
+*color13:                         #9435dd
+
+!! cyan dark/light
+*color6:                          #179cb7
+*color14:                         #179cb7
+
+!! white dark/light
+*color7:                          #E0E0E0
+*color15:                         #E8E8E8
+
+!! Custom theme colors
+!*colorvw_0:                       #0f002b
+!*colorvw_1:                       #179c6a
+!*colorvw_2:                       #2c16aa
+
+Xcursor.theme: xcursor-breeze
+Xcursor.size:                     12
+
+URxvt*font: xft:SauceCodePro Nerd Font Mono:size=9:antialias=true
+alacritty*font: xft:SauceCodePro Nerd Font Mono:size=9:antialias=true
+xterm*font: xft:SauceCodePro Nerd Font Mono:size=9:antialias=true
+
+URxvt.depth:                      32
+!URxvt.background:                 [70]#0f002b
+URxvt*scrollBar:                  false
+URxvt*mouseWheelScrollPage:       false
+URxvt*cursorBlink:                true
+URxvt*foreground:                 grey
+URxvt*saveLines:                  5000
+!URxvt*cursorColor:                color6
+URxvt*buffered:                  false

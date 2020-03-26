@@ -37,8 +37,9 @@ set t_Co=256
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
-	set shiftwidth=2
-	set tabstop=2
+	set shiftwidth=4
+	set tabstop=4
+	set autoindent
 
 " Macro efficiency - skip term redraw during macros
 	set lazyredraw

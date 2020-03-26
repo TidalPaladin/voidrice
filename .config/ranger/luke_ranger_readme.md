@@ -19,9 +19,7 @@ These are the basic key binds in ranger, even outside of my configs. Note that t
 
 ## Shortcuts
 
-As I say in the main readme, there are shortcut commands generated for ranger
-based on what bookmarked directories and files you give it. For directory
-shortcuts, here are the "verbs":
+I've added many folder-specific shortcuts; refer to rc.conf for the specifics, but here's the idea. There are for "verbs:"
 
 + g -- "go or cd"
 + t -- "new tab"
@@ -33,7 +31,7 @@ These "verbs" take "nouns" or "arguments," like these:
 + d -- "~/Documents"
 + D -- "~/Downloads"
 + cf -- "~/.config"
-+ And many others, including those you add to `~/.bmdirs`.
++ And many others, including those you add!
 
 Press any "verb" followed by any "argument" to perform a folder operation. "gd" will cd to ~/Documents, for example. "mD" will move the selected file(s) to ~/Downloads. "tcf" will create a new tab in ~/.config, etc. etc.
 

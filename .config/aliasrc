@@ -55,15 +55,19 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	gdm="git diff master" \
 	gdt="git difftool" \
 	gg="git lg" \
+  gl="git log --graph --decorate=auto --pretty=oneline --abbrev-commit" \
 	gomdone="git-on-master && gpf && git-done" \
 	gp="git push" \
 	gpf="git push --force" \
 	gph="git push heroku" \
 	gpom="git push origin master" \
 	gpr="git pull --rebase" \
+	gra="git rebase --abort" \
 	grc="git rebase --continue" \
+	gri="git rebase --interactive" \
 	gs="git show" \
 	inst="sudo pacman -S" \
+	logout="kill -9 -1" \
 	ls="ls -hN --color=auto --group-directories-first" \
 	m="git checkout master" \
 	mastre="master" \
@@ -79,6 +83,7 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	serv="ssh tidal@tidalpaladin.com" \
 	songdl="youtube-dl --extract-audio --audio-format m4a --add-metadata --audio-quality 3 --write-thumbnail --continue" \
 	squash="git rebase -i master" \
+	svim="sudoedit" \
 	susp="systemctl suspend" \
 	u="cd ../" \
 	update="pacaur -Syu" \

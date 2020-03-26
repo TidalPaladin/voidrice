@@ -1,0 +1,25 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a device; this may
+# be used with UUID= as a more robust way to name devices that works even if
+# disks are added and removed. See fstab(5).
+#
+# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
+UUID=60BE-A82E                            /boot/efi      vfat    defaults,noatime 0 2
+UUID=f1d3cd54-b8de-4d58-accd-9e6627bbb1bc /              ext4    defaults,noatime,discard 0 1
+UUID=bb3515d3-1218-4fff-ae78-48aa3b50efbd swap           swap    defaults,noatime,discard 0 2
+UUID=18b269ca-4250-481d-8339-bce222ba7c37 /home		 ext4	 defaults 0 2
+tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
+
+# Mount Corsair USB stick
+UUID=6B71-6F1C		/mnt/usb	     auto	 defaults,auto,nofail 0 2
+
+# ISCSI
+UUID=6108e7bf-d975-4e53-b0e8-ff928e2e7b51 /mnt/iscsi	ext4	defaults,auto,nofail,noatime,_netdev	0 0	
+UUID=a60cb039-3596-424d-b1c1-1b0a6032813d /mnt/imagenet ext4	defaults,ro,nofail,noatime,_netdev	0 0
+
+
+valak:/mnt/nas/media		/mnt/valak/media	nfs	defaults,ro,user,nofail,soft	0 0
+valak:/mnt/nas/documents	/home/tidal/Documents	nfs	defaults,rw,noatime,nofail,soft	0 0
+valak:/mnt/nas/logs		/mnt/valak/logs		nfs	defaults,ro,user,nofail,soft	0 0
+valak:/mnt/nas/share		/mnt/valak/share	nfs	defaults,ro,user,nofail,soft	0 0
