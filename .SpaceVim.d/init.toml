@@ -24,6 +24,9 @@
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
 
+[[layers]]
+  name = 'colorscheme'
+
 # Enable autocomplete layer
 [[layers]]
   name = 'autocomplete'
@@ -37,7 +40,8 @@
 
 [[layers]]
   name = "lang#python"
-  format_on_save = 1
+  format_on_save = 0
+  enable_typeinfo = true
 
 [[layers]]
   name = "lang#java"
@@ -46,10 +50,11 @@
   name = "sudo"
 
 [[layers]]
-  name = "latex"
+  name = "lang#latex"
 
 [[layers]]
   name = "git"
+  git-pugin = "fugitive"
 
 [[layers]]
   name = "dockerfile"
@@ -59,6 +64,10 @@
 
 [[layers]]
   name = "lang#ipynb"
+  format_on_save = 0
+
+[[layers]]
+  name = "lang#r"
 
 [[custom_plugins]]
   name = "joshdick/onedark.vim"

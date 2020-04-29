@@ -110,9 +110,7 @@ exec_always --no-startup-id mpdupdate
 exec_always --no-startup-id podentr
 exec_always --no-startup-id numlockx on
 # Start polybar
-exec --no-startup-id polybar -r left
-exec --no-startup-id polybar -r center
-exec --no-startup-id polybar -r right
+exec --no-startup-id polybar example
 # Swap keys
 exec --no-startup-id xmodmap $HOME/.scripts/ttymaps.kmap
 # Start bitwarden

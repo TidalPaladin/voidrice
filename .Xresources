@@ -1,6 +1,6 @@
-Xft.dpi: 140
-*.dpi: 140
-Xcursor.size: 14
+Xft.dpi: 157
+*.dpi: 157
+Xcursor.size: 28
 
 !------------------xresources
 mode:	night
@@ -8,6 +8,39 @@ bg:		#090611
 fg: 	#962d4c
 accent:	#962d4c
 sec:	#58697b
+
+!! black dark/light
+*color0:                          #000000
+*color8:                          #000000
+
+!! red dark/light
+*color1:                          #ab4642
+*color9:                          #ab4642
+
+!! green dark/light
+*color2:                          #7E807E
+*color10:                         #8D8F8D
+
+!! yellow dark/light
+*color3:                          #f7ca88
+*color11:                         #f7ca88
+
+!! blue dark/light
+*color4:                          #7cafc2
+*color12:                         #7cafc2
+
+!! magenta dark/light
+*color5:                          #ba8baf
+*color13:                         #ba8baf
+
+!! cyan dark/light
+*color6:                          #1ABB9B
+*color14:                         #1ABB9B
+
+!! white dark/light
+*color7:                          #d8d8d8
+*color15:                         #f8f8f8
+
 
 ! Xft
 Xft*antialiasing: true
