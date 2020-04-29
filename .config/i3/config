@@ -35,7 +35,7 @@ set $res_h $RES_H
 
 # Resolution for dropdowns
 set $dd_w 50
-set $dd_h 33
+set $dd_h 45
 
 
 # #---Dropdown Windows---# #
@@ -74,6 +74,13 @@ for_window [class="Skype"] scratchpad show
 for_window [class="Skype"] resize set $dd_w ppt $dd_h ppt
 for_window [class="Skype"] move position center
 
+for_window [class="discord"] floating enable
+for_window [class="discord"] move scratchpad
+for_window [class="discord"] sticky enable
+for_window [class="discord"] scratchpad show
+for_window [class="discord"] resize set $dd_w ppt $dd_h ppt
+for_window [class="discord"] move position center
+
 for_window [class="Lutris"] floating enable
 for_window [class="Lutris"] resize set 1920 1080
 for_window [class="battle.net.exe"] floating enable
@@ -110,8 +117,8 @@ exec --no-startup-id polybar -r right
 exec --no-startup-id xmodmap $HOME/.scripts/ttymaps.kmap
 # Start bitwarden
 exec --no-startup-id bitwarden-bin
-# Start skype
-exec --no-startup-id skypeforlinux
+# Start discord
+exec --no-startup-id discord
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
@@ -216,7 +223,7 @@ bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id botto
 bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id bottomright
 
-bindsym $mod+m			[class="Skype"] scratchpad show;
+bindsym $mod+m			[class="discord"] scratchpad show;
 bindsym $mod+Shift+m		exec --no-startup-id lmc mute
 
 # #---Workspace Bindings---# #
