@@ -74,6 +74,13 @@ for_window [class="Skype"] scratchpad show
 for_window [class="Skype"] resize set $dd_w ppt $dd_h ppt
 for_window [class="Skype"] move position center
 
+for_window [class="Lutris"] floating enable
+for_window [class="Lutris"] resize set 1920 1080
+for_window [class="battle.net.exe"] floating enable
+for_window [class="battle.net.exe"] resize set 1920 1080
+for_window [title="Blizzard Battle.net"] floating enable
+for_window [title="Blizzard Battle.net"] resize set 1920 1080
+
 focus_follows_mouse no
 
 # #---Starting External Scripts---# #
