@@ -22,7 +22,7 @@
 for_window [class="^.*"] border pixel 2
 gaps inner 15
 gaps outer 10
-gaps top 20
+gaps top 10
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $stoprec --no-startup-id dmenurecord kill
@@ -81,6 +81,13 @@ for_window [class="discord"] scratchpad show
 for_window [class="discord"] resize set $dd_w ppt $dd_h ppt
 for_window [class="discord"] move position center
 
+for_window [class="Slack"] floating enable
+for_window [class="Slack"] move scratchpad
+for_window [class="Slack"] sticky enable
+for_window [class="Slack"] scratchpad show
+for_window [class="Slack"] resize set $dd_w ppt $dd_h ppt
+for_window [class="Slack"] move position center
+
 for_window [class="Lutris"] floating enable
 for_window [class="Lutris"] resize set 1920 1080
 for_window [class="battle.net.exe"] floating enable
@@ -117,6 +124,8 @@ exec --no-startup-id xmodmap $HOME/.scripts/ttymaps.kmap
 exec --no-startup-id bitwarden-bin
 # Start discord
 exec --no-startup-id discord
+# Start slack
+exec --no-startup-id slack
 
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
@@ -169,7 +178,7 @@ bindsym $mod+Control+k		exec --no-startup-id i3resize up
 bindsym $mod+o			sticky toggle
 bindsym $mod+Control+l		exec --no-startup-id i3resize right
 
-bindsym $mod+p			exec --no-startup-id lmc toggle
+bindsym $mod+p      [class="Slack"] scratchpad show;
 bindsym $mod+Shift+p		exec --no-startup-id lmc pause
 
 bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc
