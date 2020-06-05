@@ -13,6 +13,8 @@ export KEYTIMEOUT=1
 export TERM="xterm-256color"
 export DOTDIR="$HOME/voidrice"
 
+export LD_PRELOAD=/lib/libmkl_def.so:/lib/libmkl_avx.so:/lib/libmkl_core.so:/lib/libmkl_intel_lp64.so:/lib/libmkl_intel_thread.so:/lib/libiomp5.so
+
 # Apply pywal theme and powerline
 WAL_DIR="$HOME/.cache/wal"
 [ -f "$WAL_DIR/sequences" ] && (cat "$WAL_DIR/sequences" &)
