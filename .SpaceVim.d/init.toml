@@ -57,6 +57,9 @@
   git-pugin = "fugitive"
 
 [[layers]]
+  name = "VersionControl"
+
+[[layers]]
   name = "dockerfile"
 
 [[layers]]
