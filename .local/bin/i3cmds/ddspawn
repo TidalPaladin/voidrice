@@ -7,6 +7,11 @@
 
 [ -z "$1" ] && exit
 
+if [ ! $(command -v xwininfo) ]; then 
+  echo "Please install xwininfo" 
+  exit 1
+fi
+
 if [ -n "$(xwininfo -tree -root | grep \"dropdown_$1\")" ];
 then
 	echo "Window detected."
