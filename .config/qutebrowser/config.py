@@ -2,6 +2,7 @@
 ## Documentation:
 ##   qute://help/configuring.html
 ##   qute://help/settings.html
+# fonts.tabs
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
@@ -725,7 +726,8 @@ c.fonts.statusbar = '6pt monospace'
 
 ## Font used in the tab bar.
 ## Type: QtFont
-c.fonts.tabs = '6pt monospace'
+c.fonts.tabs.selected = '6pt monospace'
+c.fonts.tabs.unselected = '6pt monospace'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -876,7 +878,7 @@ c.input.partial_timeout = 5000
 ## Enable Opera-like mouse rocker gestures. This disables the context
 ## menu.
 ## Type: Bool
-c.input.rocker_gestures = False
+c.input.mouse.rocker_gestures = False
 
 ## Enable Spatial Navigation. Spatial navigation consists in the ability
 ## to navigate between focusable elements in a Web page, such as
@@ -1011,7 +1013,7 @@ c.spellcheck.languages = []
 
 ## Hide the statusbar unless a message is shown.
 ## Type: Bool
-c.statusbar.hide = False
+c.statusbar.show = "always"
 
 ## Padding for the statusbar.
 ## Type: Padding
