@@ -292,8 +292,8 @@ ramp-capacity-foreground = ${colors.foreground-alt}
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input
+warn-temperature = 85
 
 format-prefix = "﨎 "
 format-prefix-foreground = #ffffff

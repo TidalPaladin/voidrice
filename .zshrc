@@ -8,12 +8,13 @@ if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
     tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
 
+
+
 # Exports
+export EDITOR="vim"
 export KEYTIMEOUT=1
 export TERM="xterm-256color"
 export DOTDIR="$HOME/voidrice"
-
-export LD_PRELOAD=/lib/libmkl_def.so:/lib/libmkl_avx.so:/lib/libmkl_core.so:/lib/libmkl_intel_lp64.so:/lib/libmkl_intel_thread.so:/lib/libiomp5.so
 
 # Apply pywal theme and powerline
 WAL_DIR="$HOME/.cache/wal"
@@ -56,4 +57,9 @@ fi
 zplug load
 
 # Anaconda
-[ -f "/etc/profile.d/conda.sh" ] && . "/etc/profile.d/conda.sh"
+if [ -f "$HOME/anaconda3/bin/conda" ]; then
+  conda &>/dev/null || export PATH="$PATH:$HOME/anaconda3/bin"
+  . /home/tidal/anaconda3/etc/profile.d/conda.sh
+fi
+
+[ $(command -v gpg-connect-agent) ] && gpg-connect-agent updatestartuptty /bye > /dev/null 2>&1
