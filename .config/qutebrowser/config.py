@@ -476,7 +476,7 @@ c.content.headers.do_not_track = True
 
 ## User agent to send. Unset to send the default.
 ## Type: String
-c.content.headers.user_agent = None
+#c.content.headers.user_agent = None
 
 ## Whether host blocking is enabled.
 ## Type: Bool
@@ -549,14 +549,6 @@ c.content.local_content_can_access_remote_urls = False
 ## Whether support for HTML 5 local storage and Web SQL is enabled.
 ## Type: Bool
 c.content.local_storage = True
-
-## Allow websites to record audio/video.
-## Type: BoolAsk
-## Valid values:
-##   - true
-##   - false
-##   - ask
-c.content.media_capture = 'ask'
 
 ## Location of a netrc-file for HTTP authentication. If unset, `~/.netrc`
 ## is used.
@@ -709,12 +701,6 @@ c.fonts.messages.info = '6pt monospace'
 ## Type: Font
 c.fonts.messages.warning = '6pt monospace'
 
-## Default monospace fonts. Whenever "monospace" is used in a font
-## setting, it's replaced with the fonts listed here.
-## Type: Font
-#c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
-c.fonts.monospace = '"DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
-
 ## Font used for prompts.
 ## Type: Font
 c.fonts.prompts = '6pt sans-serif'
@@ -722,10 +708,6 @@ c.fonts.prompts = '6pt sans-serif'
 ## Font used in the statusbar.
 ## Type: Font
 c.fonts.statusbar = '6pt monospace'
-
-## Font used in the tab bar.
-## Type: QtFont
-c.fonts.tabs = '6pt monospace'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -873,11 +855,6 @@ c.input.links_included_in_focus_chain = True
 ## Type: Int
 c.input.partial_timeout = 5000
 
-## Enable Opera-like mouse rocker gestures. This disables the context
-## menu.
-## Type: Bool
-c.input.rocker_gestures = False
-
 ## Enable Spatial Navigation. Spatial navigation consists in the ability
 ## to navigate between focusable elements in a Web page, such as
 ## hyperlinks and form controls, by using Left, Right, Up and Down arrow
@@ -1008,10 +985,6 @@ c.session.default_name = None
 ##   - uk-UA: Ukrainian (Ukraine)
 ##   - vi-VN: Vietnamese (Viet Nam)
 c.spellcheck.languages = []
-
-## Hide the statusbar unless a message is shown.
-## Type: Bool
-c.statusbar.hide = False
 
 ## Padding for the statusbar.
 ## Type: Padding

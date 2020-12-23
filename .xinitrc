@@ -5,11 +5,12 @@
 # Executed by startx (run your window manager from here)
 
 userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
+usermodmap=$HOME/.local/bin/ttymaps.kmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 DEFAULT_SESSION='i3 --shmlog-size 0'
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 # merge in defaults and keymaps
 

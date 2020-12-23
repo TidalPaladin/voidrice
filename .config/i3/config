@@ -21,8 +21,8 @@
 # Needed for i3-gaps
 for_window [class="^.*"] border pixel 2
 gaps inner 15
-gaps outer 10
-gaps top 20
+gaps outer 5
+gaps top 25
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $stoprec --no-startup-id dmenurecord kill
@@ -67,12 +67,19 @@ for_window [class="mpv"] border pixel 0
 for_window [class="mpv"] resize set 1280 720
 for_window [class="mpv"] move position 2560 px 1440 px
 
-for_window [class="Skype"] floating enable
-for_window [class="Skype"] move scratchpad
-for_window [class="Skype"] sticky enable
-for_window [class="Skype"] scratchpad show
-for_window [class="Skype"] resize set $dd_w ppt $dd_h ppt
-for_window [class="Skype"] move position center
+for_window [class="discord"] floating enable
+for_window [class="discord"] move scratchpad
+for_window [class="discord"] sticky enable
+for_window [class="discord"] scratchpad show
+for_window [class="discord"] resize set $dd_w ppt $dd_h ppt
+for_window [class="discord"] move position center
+
+for_window [class="Slack"] floating enable
+for_window [class="Slack"] move scratchpad
+for_window [class="Slack"] sticky enable
+for_window [class="Slack"] scratchpad show
+for_window [class="Slack"] resize set $dd_w ppt $dd_h ppt
+for_window [class="Slack"] move position center
 
 focus_follows_mouse no
 
@@ -96,13 +103,11 @@ exec_always --no-startup-id mpdupdate
 exec_always --no-startup-id podentr
 exec_always --no-startup-id numlockx on
 # Start polybar
-exec --no-startup-id polybar -r left
 exec --no-startup-id polybar -r center
-exec --no-startup-id polybar -r right
 # Swap keys
-exec --no-startup-id xmodmap $HOME/.scripts/ttymaps.kmap
+exec --no-startup-id xmodmap /home/tidal/.local/bin/ttymaps.kmap
 # Start bitwarden
-exec --no-startup-id bitwarden-bin
+exec --no-startup-id bitwarden-desktop
 # Start skype
 exec --no-startup-id skypeforlinux
 
@@ -157,7 +162,7 @@ bindsym $mod+Control+k		exec --no-startup-id i3resize up
 bindsym $mod+o			sticky toggle
 bindsym $mod+Control+l		exec --no-startup-id i3resize right
 
-bindsym $mod+p			exec --no-startup-id lmc toggle
+bindsym $mod+p			[class="Slack"] scratchpad show;
 bindsym $mod+Shift+p		exec --no-startup-id lmc pause
 
 bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc
@@ -209,7 +214,7 @@ bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id botto
 bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id bottomright
 
-bindsym $mod+m			[class="Skype"] scratchpad show;
+bindsym $mod+m			[class="discord"] scratchpad show;
 bindsym $mod+Shift+m		exec --no-startup-id lmc mute
 
 # #---Workspace Bindings---# #
@@ -445,11 +450,11 @@ set_from_resource $f_fg i3wm.color0
 set_from_resource $f_bg i3wm.color5
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $f_bg   $f_fg 	$f_fg     $bg
-client.focused_inactive $bg     $bg     $fg  	$bg       $bg
-client.unfocused        $bg     $bg     $fg  	$bg       $bg
-client.urgent           $bg     $bg     $fg  	$bg       $bg
-client.placeholder      $bg     $bg     $fg  	$bg       $bg
-client.background       $bg
+#client.focused          $bg     $f_bg   $f_fg 	$f_fg     $bg
+#client.focused_inactive $bg     $bg     $fg  	$bg       $bg
+#client.unfocused        $bg     $bg     $fg  	$bg       $bg
+#client.urgent           $bg     $bg     $fg  	$bg       $bg
+#client.placeholder      $bg     $bg     $fg  	$bg       $bg
+#client.background       $bg
 
 font xft:URWGothic-Book 10

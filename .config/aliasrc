@@ -63,6 +63,7 @@ alias aliases="vim $DOTDIR/.config/aliasrc && cp $DOTDIR/.config/aliasrc $HOME/.
 	gpr="git pull --rebase" \
 	grc="git rebase --continue" \
 	gs="git show" \
+	gsu="git submodule update --init --recursive" \
 	inst="sudo pacman -S" \
 	ls="ls -hN --color=auto --group-directories-first" \
 	m="git checkout master" \

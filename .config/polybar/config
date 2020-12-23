@@ -46,14 +46,15 @@ border-size = 0
 border-color = #000000
 
 padding-left = 2
-padding-right = 3
+padding-right = 2
 
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = "Iosevka Term:size=18;2"
-font-1 = "TerminessTTF Nerd Font:size=18;2"
-font-2 = "FontAwesome:size=18;0"
+font-0 = "Iosevka Term:size=8;2"
+font-1 = "TerminessTTF Nerd Font Mono:size=10;4"
+dpi-x = 170
+dpi-y = 170
 separator = " │ "
 
 modules-center = date
@@ -160,10 +161,10 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /home
+;mount-1 = /home
 ;mount-2 = /mnt/Storage
 
-label-mounted =  %mountpoint% %percentage_used:3%%
+label-mounted =   %mountpoint% %percentage_used:3%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
