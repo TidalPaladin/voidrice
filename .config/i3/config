@@ -105,7 +105,7 @@ exec_always --no-startup-id numlockx on
 # Start polybar
 exec --no-startup-id polybar -r center
 # Swap keys
-exec --no-startup-id xmodmap /home/tidal/.local/bin/ttymaps.kmap
+exec-always --no-startup-id source /home/tidal/.Xmodmap
 # Start bitwarden
 exec --no-startup-id bitwarden-desktop
 # Start skype

@@ -64,4 +64,8 @@ get_session(){
 	echo "dbus-launch ${dbus_args[*]}"
 }
 
+if [ -f "$usermodmap" ]; then
+    xmodmap "$usermodmap"
+fi
+
 exec $(get_session)
