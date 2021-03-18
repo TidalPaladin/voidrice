@@ -15,6 +15,9 @@ export EDITOR="vim"
 export KEYTIMEOUT=1
 export TERM="xterm-256color"
 export DOTDIR="$HOME/voidrice"
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000
+export SAVEHIST=1000
 
 # Apply pywal theme and powerline
 WAL_DIR="$HOME/.cache/wal"
