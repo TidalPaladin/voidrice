@@ -481,21 +481,21 @@ c.content.headers.do_not_track = True
 
 ## Whether host blocking is enabled.
 ## Type: Bool
-c.content.host_blocking.enabled = True
+#c.content.host_blocking.enabled = True
 
 ## List of URLs of lists which contain hosts to block.  The file can be
 ## in one of the following formats:  - An `/etc/hosts`-like file - One
 ## host per line - A zip-file of any of the above, with either only one
 ## file, or a file named   `hosts` (with any extension).
 ## Type: List of Url
-c.content.host_blocking.lists = ['https://www.malwaredomainlist.com/hostslist/hosts.txt', 'http://someonewhocares.org/hosts/hosts', 'http://winhelp2002.mvps.org/hosts.zip', 'http://malwaredomains.lehigh.edu/files/justdomains.zip', 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext']
+#c.content.host_blocking.lists = ['https://www.malwaredomainlist.com/hostslist/hosts.txt', 'http://someonewhocares.org/hosts/hosts', 'http://winhelp2002.mvps.org/hosts.zip', 'http://malwaredomains.lehigh.edu/files/justdomains.zip', 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext']
 
 ## List of domains that should always be loaded, despite being ad-
 ## blocked. Domains may contain * and ? wildcards and are otherwise
 ## required to exactly match the requested domain. Local domains are
 ## always exempt from hostblocking.
 ## Type: List of String
-c.content.host_blocking.whitelist = ['piwik.org']
+#c.content.host_blocking.whitelist = ['piwik.org']
 
 ## Enable or disable hyperlink auditing (`<a ping>`).
 ## Type: Bool
@@ -1260,7 +1260,7 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 c.zoom.mouse_divider = 512
 
 ## Bindings for normal mode
-config.bind("'", 'enter-mode jump_mark')
+config.bind("'", 'mode-enter jump_mark')
 config.bind('+', 'zoom-in')
 config.bind('-', 'zoom-out')
 config.bind('.', 'repeat-command')
@@ -1298,14 +1298,14 @@ config.bind('<Ctrl-N>', 'open -w')
 config.bind('<Ctrl-PgDown>', 'tab-next')
 config.bind('<Ctrl-PgUp>', 'tab-prev')
 config.bind('<Ctrl-Q>', 'quit')
-config.bind('<Ctrl-Return>', 'follow-selected -t')
+config.bind('<Ctrl-Return>', 'selection-follow -t')
 config.bind('<Ctrl-Shift-N>', 'open -p')
 config.bind('<Ctrl-Shift-T>', 'undo')
 config.bind('<Ctrl-Shift-W>', 'close')
 config.bind('<Ctrl-T>', 'open -t')
 config.bind('<Ctrl-Tab>', 'tab-focus last')
 config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
-config.bind('<Ctrl-V>', 'enter-mode passthrough')
+config.bind('<Ctrl-V>', 'mode-enter passthrough')
 config.bind('<Ctrl-W>', 'tab-close')
 config.bind('<Ctrl-X>', 'navigate decrement')
 config.bind('<Ctrl-^>', 'tab-focus last')
@@ -1315,7 +1315,7 @@ config.bind('<Ctrl-s>', 'stop')
 config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 config.bind('<F11>', 'fullscreen')
 config.bind('<F5>', 'reload')
-config.bind('<Return>', 'follow-selected')
+config.bind('<Return>', 'selection-follow')
 config.bind('<back>', 'back')
 config.bind('<forward>', 'forward')
 config.bind('=', 'zoom')
@@ -1344,7 +1344,7 @@ config.bind('ZQ', 'quit')
 config.bind('ZZ', 'quit --save')
 config.bind('[[', 'navigate prev')
 config.bind(']]', 'navigate next')
-config.bind('`', 'enter-mode set_mark')
+config.bind('`', 'mode-enter set_mark')
 config.bind('ad', 'download-cancel')
 config.bind('b', 'set-cmd-text -s :quickmark-load')
 config.bind('cd', 'download-clear')
@@ -1368,10 +1368,10 @@ config.bind('gl', 'tab-move -')
 config.bind('gm', 'tab-move')
 config.bind('go', 'set-cmd-text :open {url:pretty}')
 config.bind('gr', 'tab-move +')
-config.bind('gt', 'set-cmd-text -s :buffer')
+config.bind('gt', 'set-cmd-text -s :tab-select')
 config.bind('gu', 'navigate up')
 config.bind('h', 'scroll left')
-config.bind('i', 'enter-mode insert')
+config.bind('i', 'mode-enter insert')
 config.bind('j', 'scroll down')
 config.bind('k', 'scroll up')
 config.bind('l', 'scroll right')
@@ -1391,7 +1391,7 @@ config.bind('tl', 'forward -t')
 #config.bind('u', 'undo')
 config.bind('u', 'scroll-page 0 -0.5')
 config.bind('U', 'undo')
-config.bind('v', 'enter-mode caret')
+config.bind('v', 'mode-enter caret')
 config.bind('wB', 'set-cmd-text -s :bookmark-load -w')
 config.bind('wO', 'set-cmd-text :open -w {url:pretty}')
 config.bind('wP', 'open -w -- {primary}')
@@ -1422,10 +1422,10 @@ config.bind('}}', 'navigate next -t')
 ## Bindings for caret mode
 config.bind('$', 'move-to-end-of-line', mode='caret')
 config.bind('0', 'move-to-start-of-line', mode='caret')
-config.bind('<Ctrl-Space>', 'drop-selection', mode='caret')
-config.bind('<Escape>', 'leave-mode', mode='caret')
+config.bind('<Ctrl-Space>', 'selection-drop', mode='caret')
+config.bind('<Escape>', 'mode-leave', mode='caret')
 config.bind('<Return>', 'yank selection', mode='caret')
-config.bind('<Space>', 'toggle-selection', mode='caret')
+config.bind('<Space>', 'selection-toggle', mode='caret')
 config.bind('G', 'move-to-end-of-document', mode='caret')
 config.bind('H', 'scroll left', mode='caret')
 config.bind('J', 'scroll down', mode='caret')
@@ -1435,14 +1435,14 @@ config.bind('Y', 'yank selection -s', mode='caret')
 config.bind('[', 'move-to-start-of-prev-block', mode='caret')
 config.bind(']', 'move-to-start-of-next-block', mode='caret')
 config.bind('b', 'move-to-prev-word', mode='caret')
-config.bind('c', 'enter-mode normal', mode='caret')
+config.bind('c', 'mode-enter normal', mode='caret')
 config.bind('e', 'move-to-end-of-word', mode='caret')
 config.bind('gg', 'move-to-start-of-document', mode='caret')
 config.bind('h', 'move-to-prev-char', mode='caret')
 config.bind('j', 'move-to-next-line', mode='caret')
 config.bind('k', 'move-to-prev-line', mode='caret')
 config.bind('l', 'move-to-next-char', mode='caret')
-config.bind('v', 'toggle-selection', mode='caret')
+config.bind('v', 'selection-toggle', mode='caret')
 config.bind('w', 'move-to-next-word', mode='caret')
 config.bind('y', 'yank selection', mode='caret')
 config.bind('{', 'move-to-end-of-prev-block', mode='caret')
@@ -1469,7 +1469,7 @@ config.bind('<Ctrl-U>', 'rl-unix-line-discard', mode='command')
 config.bind('<Ctrl-W>', 'rl-unix-word-rubout', mode='command')
 config.bind('<Ctrl-Y>', 'rl-yank', mode='command')
 config.bind('<Down>', 'command-history-next', mode='command')
-config.bind('<Escape>', 'leave-mode', mode='command')
+config.bind('<Escape>', 'mode-leave', mode='command')
 config.bind('<Return>', 'command-accept', mode='command')
 config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
@@ -1480,16 +1480,16 @@ config.bind('<Up>', 'command-history-prev', mode='command')
 config.bind('<Ctrl-B>', 'hint all tab-bg', mode='hint')
 config.bind('<Ctrl-F>', 'hint links', mode='hint')
 config.bind('<Ctrl-R>', 'hint --rapid links tab-bg', mode='hint')
-config.bind('<Escape>', 'leave-mode', mode='hint')
-config.bind('<Return>', 'follow-hint', mode='hint')
+config.bind('<Escape>', 'mode-leave', mode='hint')
+config.bind('<Return>', 'hint-follow', mode='hint')
 
 ## Bindings for insert mode
-config.bind('<Ctrl-E>', 'open-editor', mode='insert')
-config.bind('<Escape>', 'leave-mode', mode='insert')
+config.bind('<Ctrl-E>', 'edit-text', mode='insert')
+config.bind('<Escape>', 'mode-leave', mode='insert')
 config.bind('<Shift-Ins>', 'insert-text {primary}', mode='insert')
 
 ## Bindings for passthrough mode
-config.bind('<Ctrl-V>', 'leave-mode', mode='passthrough')
+config.bind('<Ctrl-V>', 'mode-leave', mode='passthrough')
 
 ## Bindings for prompt mode
 config.bind('<Alt-B>', 'rl-backward-word', mode='prompt')
@@ -1508,7 +1508,7 @@ config.bind('<Ctrl-W>', 'rl-unix-word-rubout', mode='prompt')
 config.bind('<Ctrl-X>', 'prompt-open-download', mode='prompt')
 config.bind('<Ctrl-Y>', 'rl-yank', mode='prompt')
 config.bind('<Down>', 'prompt-item-focus next', mode='prompt')
-config.bind('<Escape>', 'leave-mode', mode='prompt')
+config.bind('<Escape>', 'mode-leave', mode='prompt')
 config.bind('<Return>', 'prompt-accept', mode='prompt')
 config.bind('<Shift-Tab>', 'prompt-item-focus prev', mode='prompt')
 config.bind('<Tab>', 'prompt-item-focus next', mode='prompt')
@@ -1518,7 +1518,7 @@ config.bind('y', 'prompt-accept yes', mode='prompt')
 config.bind(';;', 'hint links download')
 
 ## Bindings for register mode
-config.bind('<Escape>', 'leave-mode', mode='register')
+config.bind('<Escape>', 'mode-leave', mode='register')
 
 config.source('shortcuts.py')
 
