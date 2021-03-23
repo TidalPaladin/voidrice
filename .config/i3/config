@@ -96,6 +96,8 @@ for_window [class="battle.net.exe"] floating enable
 for_window [class="battle.net.exe"] resize set 1920 1080
 for_window [title="Blizzard Battle.net"] floating enable
 for_window [title="Blizzard Battle.net"] resize set 1920 1080
+for_window [class="epicgameslauncher.exe"] floating enable
+for_window [class="epicgameslauncher.exe"] resize set 1920 1080
 
 focus_follows_mouse no
 
