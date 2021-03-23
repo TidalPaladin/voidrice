@@ -1,2 +1,6 @@
 *secrets*
 **/__pycache__
+.local/bin/**
+!.local/bin/*/
+.ipython/**
+!.ipython/profile_default/startup/imports.py
